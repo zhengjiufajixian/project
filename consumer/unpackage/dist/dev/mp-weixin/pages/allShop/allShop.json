@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "门店",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-loading": "/uview-ui/components/u-loading/u-loading",
+    "u-rate": "/uview-ui/components/u-rate/u-rate",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-line": "/uview-ui/components/u-line/u-line",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore"
+  }
+}

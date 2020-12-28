@@ -1,0 +1,384 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+		}, {
+			"path": "pages/class/class",
+			"style": {
+				"navigationBarTitleText": "课堂",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		},
+		{
+			"path": "pages/sos/sos",
+			"style": {
+				"navigationBarTitleText": "SOS",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		}, {
+			"path": "pages/steward/steward",
+			"style": {
+				"navigationBarTitleText": "车管家",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		}, {
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		}, {
+			"path": "pages/setting/setting",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		}, {
+			"path": "pages/setting/bindPhone/bindPhone",
+			"style": {
+				"navigationBarTitleText": "绑定手机号",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		}
+
+		, {
+			"path": "pages/my/info/info",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+			}
+
+		}
+	    ,{
+            "path" : "pages/my/info/userName/userName",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "修改昵称",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/info/gender/gender",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "修改性别",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/info/address/address",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "管理收货地址",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/info/address/addNewAddress/addNewAddress",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增收货地址",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/info/address/editAddress/editAddress",
+            "style" :                                                                                    
+            {
+				"navigationBarTitleText": "编辑收货地址",
+				"enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/my/info/editPhone/editPhone",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "修改手机号",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/washCar/washCar",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预约下单",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/pay/pay",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "支付",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/allShop/allShop",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "门店",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/order",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的订单",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/orderDetail/orderDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "订单详情",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/wallet/wallet",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的钱包",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/charge/charge",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "充值",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/vip/vip",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "会员中心",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "#D4B17B",
+				"navigationBarBackgroundColor": "#3D3C3A"
+            }
+            
+        }
+        ,{
+            "path" : "pages/myCar/myCar",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的车辆",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/unregister/unregister",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注销账户",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/password/password",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/userAgreement/userAgreement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户协议",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/about/about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关于广莱",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/suggesstion/suggesstion",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "投诉及建议",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/contact/contact",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "联系客服",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/rate/rate",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "评价订单",
+                "enablePullDownRefresh": false,
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#1672ff"
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#16AEFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#3E4458",
+		"selectedColor": "#1672FF",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabs/home.png",
+				"selectedIconPath": "static/tabs/home-active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/class/class",
+				"iconPath": "static/tabs/class.png",
+				"selectedIconPath": "static/tabs/class-active.png",
+				"text": "课堂"
+			},
+			{
+				"pagePath": "pages/sos/sos",
+				"iconPath": "static/tabs/sos.png",
+				"selectedIconPath": "static/tabs/sos.png",
+				"text": "SOS"
+			},
+			{
+				"pagePath": "pages/steward/steward",
+				"iconPath": "static/tabs/steward.png",
+				"selectedIconPath": "static/tabs/steward-active.png",
+				"text": "车管家"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"iconPath": "static/tabs/my.png",
+				"selectedIconPath": "static/tabs/my-active.png",
+				"text": "我的"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "测试", //模式名称
+				"path": "pages/contact/contact", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

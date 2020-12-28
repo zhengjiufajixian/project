@@ -1,0 +1,42 @@
+{
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "minified": true,
+    "postcss": true,
+    "es6": true,
+    "checkSiteMap": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "",
+  "appid": "wxdfec8f307cdae32c",
+  "projectname": "车友汇-商家端",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "name": "测试",
+          "query": "",
+          "id": 0,
+          "pathName": "pages/wallet/recordDetail/recordDetail"
+        }
+      ]
+    }
+  }
+}

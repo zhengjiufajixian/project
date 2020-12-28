@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "SOS",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {}
+}

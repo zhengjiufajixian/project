@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商家入驻",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#167DFF",
+  "usingComponents": {
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

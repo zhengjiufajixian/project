@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "注销账户",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
+    "u-row": "/uview-ui/components/u-row/u-row",
+    "u-col": "/uview-ui/components/u-col/u-col"
+  }
+}

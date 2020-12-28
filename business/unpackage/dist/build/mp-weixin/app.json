@@ -1,0 +1,58 @@
+{
+	"pages": [
+		"pages/login/login",
+		"pages/index/index",
+		"pages/register/register",
+		"pages/register/notice/notice",
+		"pages/register/submit/submit",
+		"pages/register/wait/wait",
+		"pages/order/order",
+		"pages/commodity/commodity",
+		"pages/setting/setting",
+		"pages/commodity/publish/publish",
+		"pages/commodity/edit/edit"
+	],
+	"subPackages": [],
+	"window": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#16AEFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#3E4458",
+		"selectedColor": "#1672FF",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabs/index.png",
+				"selectedIconPath": "static/tabs/index-active.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"iconPath": "static/tabs/order.png",
+				"selectedIconPath": "static/tabs/order-active.png",
+				"text": "订单"
+			},
+			{
+				"pagePath": "pages/commodity/commodity",
+				"iconPath": "static/tabs/commodity.png",
+				"selectedIconPath": "static/tabs/commodity-active.png",
+				"text": "商品"
+			},
+			{
+				"pagePath": "pages/setting/setting",
+				"iconPath": "static/tabs/setting.png",
+				"selectedIconPath": "static/tabs/setting-active.png",
+				"text": "设置"
+			}
+		]
+	},
+	"permission": {
+		"scope.userLocation": {
+			"desc": "用于显示您当前的位置"
+		}
+	},
+	"sitemapLocation": "sitemap.json",
+	"usingComponents": {}
+}

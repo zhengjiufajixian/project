@@ -1,0 +1,19 @@
+{
+  "navigationBarTitleText": "预约下单",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-avatar": "/uview-ui/components/u-avatar/u-avatar",
+    "u-rate": "/uview-ui/components/u-rate/u-rate",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-collapse": "/uview-ui/components/u-collapse/u-collapse",
+    "u-collapse-item": "/uview-ui/components/u-collapse-item/u-collapse-item",
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-line": "/uview-ui/components/u-line/u-line",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-picker": "/uview-ui/components/u-picker/u-picker"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "投诉及建议",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-upload": "/uview-ui/components/u-upload/u-upload",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

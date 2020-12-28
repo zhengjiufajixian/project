@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "评价订单",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-rate": "/uview-ui/components/u-rate/u-rate",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

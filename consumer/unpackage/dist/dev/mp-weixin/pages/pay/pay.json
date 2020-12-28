@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "支付",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-line": "/uview-ui/components/u-line/u-line",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-mask": "/uview-ui/components/u-mask/u-mask",
+    "u-image": "/uview-ui/components/u-image/u-image"
+  }
+}
