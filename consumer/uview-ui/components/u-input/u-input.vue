@@ -1,38 +1,18 @@
 <template>
-	<view
-		class="u-input"
-		:class="{
+	<view class="u-input" :class="{
 			'u-input--border': border,
 			'u-input--error': validateState
-		}"
-		:style="{
+		}" :style="{
 			padding: `0 ${border ? 20 : 0}rpx`,
 			borderColor: borderColor,
 			textAlign: inputAlign
 		}"
-		@tap.stop="inputClick"
-	>
-		<textarea
-			v-if="type == 'textarea'"
-			class="u-input__input u-input__textarea"
-			:style="[getStyle]"
-			:value="defaultValue"
-			:placeholder="placeholder"
-			:placeholderStyle="placeholderStyle"
-			:disabled="disabled"
-			:maxlength="inputMaxlength"
-			:fixed="fixed"
-			:focus="focus"
-			:autoHeight="autoHeight"
-			:selection-end="uSelectionEnd"
-			:selection-start="uSelectionStart"
-			:cursor-spacing="getCursorSpacing"
-			:show-confirm-bar="showConfirmbar"
-			@input="handleInput"
-			@blur="handleBlur"
-			@focus="onFocus"
-			@confirm="onConfirm"
-		/>
+	 @tap.stop="inputClick">
+		<textarea v-if="type == 'textarea'" class="u-input__input u-input__textarea" :style="[getStyle]" :value="defaultValue"
+		 :placeholder="placeholder" :placeholderStyle="placeholderStyle" :disabled="disabled" :maxlength="inputMaxlength"
+		 :fixed="fixed" :focus="focus" :autoHeight="autoHeight" :selection-end="uSelectionEnd" :selection-start="uSelectionStart"
+		 :cursor-spacing="getCursorSpacing" :show-confirm-bar="showConfirmbar" @input="handleInput" @blur="handleBlur" @focus="onFocus"
+		 @confirm="onConfirm" />
 		<input
 			v-else
 			class="u-input__input"
@@ -55,8 +35,8 @@
 			@input="handleInput"
 			@confirm="onConfirm"
 		/>
-		<view class="u-input__right-icon u-flex">
-			<view class="u-input__right-icon__clear u-input__right-icon__item" @tap="onClear" v-if="clearable && value != '' && focused">
+		<view class="u-input__right-icon u-flex" :style="customStyle.background?'background:' + customStyle.background + ';':''">
+			<view class="u-input__right-icon__clear u-input__right-icon__item u-margin-right-20" @tap="onClear" v-if="clearable && value != '' && focused ">
 				<u-icon size="32" name="close-circle-fill" color="#c0c4cc"/>
 			</view>
 			<view class="u-input__right-icon__clear u-input__right-icon__item" v-if="passwordIcon && type == 'password'">

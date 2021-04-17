@@ -3,5 +3,9 @@
   "enablePullDownRefresh": false,
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#1672ff",
-  "usingComponents": {}
+  "usingComponents": {
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-modal": "/uview-ui/components/u-modal/u-modal"
+  }
 }

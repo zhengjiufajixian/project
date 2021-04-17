@@ -4,14 +4,12 @@ import * as config from './config.js'
 const install = (Vue, vm) => {
 	Vue.prototype.$u.http.setConfig({
 		baseUrl: config.baseUrl
-		// baseUrl: 'http://192.168.0.112:3001'
-		// baseUrl: 'http://50b2cb8.nat123.cc:31507'
 	});
 	// 请求拦截，配置Token等参数
 	Vue.prototype.$u.http.interceptor.request = (config) => {
 		const token = uni.getStorageSync('token');
 		const tokenHead = uni.getStorageSync('tokenHead');
-		if(token && tokenHead){
+		if (token && tokenHead) {
 			config.header.Authorization = tokenHead + token;
 		}
 		config.header['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -19,24 +17,29 @@ const install = (Vue, vm) => {
 	}
 	// 响应拦截，判断状态码是否通过
 	Vue.prototype.$u.http.interceptor.response = (res) => {
+		// console.log(res);
 		// 如果把originalData设置为了true，这里得到将会是服务器返回的所有的原始数据
 		// 判断可能变成了res.statueCode，或者res.data.code之类的，请打印查看结果
+		let timer = ''
 		if (res.code == 200) {
 			// 如果把originalData设置为了true，这里return回什么，this.$u.post的then回调中就会得到什么
 			return res.data;
 		} else if (res.code == 401) {
 			uni.showToast({
-				title:"登录过期了，请重新登录",
+				title: "登录过期了，请重新登录",
 				icon: "none",
-				duration: 2000,
+				duration: 1500,
 				mask: true,
-				success:function(){
-					setTimeout(()=>{
-						uni.clearStorage()
-						uni.redirectTo({
-							url:'/pages/login/login'
-						})
-					},2000)
+				success: function() {
+					if(!timer){
+						timer = setTimeout(function(){
+							uni.clearStorage()
+							uni.navigateTo({
+								url: '/pages/login/login'
+							})
+							clearTimeout(timer)
+						}, 1500)
+					}
 				}
 			})
 			// token 过期
@@ -55,9 +58,18 @@ const install = (Vue, vm) => {
 			// 	console.log(http)
 			// });h_token: uni.getStorageSync('refreshToken')
 			// });
-			
+
 			// console.log(result)
-		} else return false;
+		} else {
+			if(res.code == 500 && res.message == '操作失败') {
+				uni.showToast({
+					title:'啊哦，请重试试试',
+					icon: 'none'
+				})
+			}
+			console.log(JSON.stringify(res));
+			return res
+		};
 	}
 }
 

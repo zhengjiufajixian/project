@@ -1,0 +1,36 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/my/my",
+                    "pathName": "pages/my/my",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "subPackages/test/test",
+                    "pathName": "subPackages/test/test",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "subPackages/share/share",
+                    "pathName": "subPackages/share/share",
+                    "query": "scene=inviteCode%3D1368088329268961282",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

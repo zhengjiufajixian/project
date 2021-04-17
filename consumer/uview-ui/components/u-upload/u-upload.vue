@@ -571,7 +571,7 @@ export default {
 .u-list-item {
 	width: 200rpx;
 	height: 200rpx;
-	overflow: hidden;
+	// overflow: hidden;
 	margin: 10rpx;
 	background: rgb(244, 245, 246);
 	position: relative;
@@ -611,8 +611,8 @@ export default {
 
 .u-delete-icon {
 	position: absolute;
-	top: 10rpx;
-	right: 10rpx;
+	top: -22rpx;
+	right: -22rpx;
 	z-index: 10;
 	background-color: $u-type-error;
 	border-radius: 100rpx;

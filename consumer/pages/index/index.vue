@@ -1,132 +1,115 @@
 <template>
-	<view>
+	<view class="u-skeleton">
 		<view class="u-flex u-padding-left-30 u-padding-right-30 u-row-between top">
-			<view class="u-font-26 location">
-				清华科技园<u-icon name="map"></u-icon>
-			</view>
-			<view class="u-rela msg">
-				<u-icon name="chat"></u-icon>
-				<u-badge :is-dot="true" type="error" :offset="[5,5]"></u-badge>
+			<view class="u-skeleton-fillet u-font-26 u-flex location" @click="choseLocation">
+				<view>{{address?address:'正在定位'}}</view>
+				<u-icon name="map"></u-icon>
 			</view>
 		</view>
 		<view class="u-padding-left-30 u-padding-right-30 u-relative banner">
 			<view class="u-absolute bg"></view>
-			<view class="wrap">
-				<u-swiper :list="bannerList" height="305"></u-swiper>
-			</view>
-			<!-- <u-image src="../../../static/image/banner.jpg" mode="widthFix" shape="square" border-radius="10">
-				<u-loading slot="loading"></u-loading>
-			</u-image> -->
-		</view>
-		<view class="u-flex u-col-center u-margin-left-30 u-margin-right-30 u-margin-top-10 u-margin-bottom-20 u-padding-top-20 u-padding-bottom-20 bg-white">
-			<view class="u-flex-2 color-ff8080 bold u-font-30">
-				<view class="u-text-center"><text>汽车</text></view>
-				<view class="u-text-center"><text>头条</text></view>
-			</view>
-			<view class="u-flex-9">
-				<u-notice-bar mode="vertical" :volume-icon="false" :list="list" type="none"></u-notice-bar>
-				<u-notice-bar mode="vertical" :volume-icon="false" :list="list" type="none"></u-notice-bar>
-			</view>
-			<view class="u-flex-1">
-				<u-icon name="arrow-right"></u-icon>
+			<view class="wrap u-skeleton-fillet">
+				<u-swiper :list="bannerList" border-radius="20" height="305" @click="handleClick"></u-swiper>
 			</view>
 		</view>
+		<u-gap height="20"></u-gap>
 		<view class="u-padding-left-30 u-padding-right-30 vip-service">
 			<view class="u-flex u-row-between common-header-wrap">
-				<view class="title">
+				<view class="title u-skeleton-fillet">
 					<u-icon name="tags-fill" color="#ff8746" size="40"></u-icon>
 					<text class="u-font-28 u-margin-left-16">会员服务</text>
 				</view>
-				<view class="sub-title">
-					<text class="u-font-22">查看全部</text>
-				</view>
 			</view>
 			<view class="service-list">
-				<view class="list-item">
-					<view class="u-font-28 item-title">汽车保养</view>
-					<view class="u-font-22 item-content">品牌连锁店任君选</view>
-					<view class="item-btn">
-						<u-button type="primary" size="mini" hair-line="false" shape="circle" :custom-style="customStyle">立即去领</u-button>
-					</view>
+				<view class="list-item service1 u-skeleton-fillet">
+					<navigator url="/subPackages/shop/shop?isBy=1" hover-class="none">						
+						<view class="u-font-28 item-title">汽车保养</view>
+						<view class="u-font-22 item-content">品牌连锁店任君选</view>
+						<view class="item-btn">立即去领</view>
+					</navigator>
 				</view>
-				<view class="list-item">
-					<view class="u-font-28 item-title">汽车保养</view>
-					<view class="u-font-22 item-content">品牌连锁店任君选</view>
-					<view class="item-btn">
-						<u-button type="primary" size="mini" hair-line="false" shape="circle" :custom-style="customStyle">立即去领</u-button>
-					</view>
+				<view class="list-item service2 u-skeleton-fillet">
+					<navigator url="/pages/sos/sos" open-type="switchTab" hover-class="none">
+						<view class="u-font-28 item-title">事故处理</view>
+						<view class="u-font-22 item-content">一键搞定无需等待</view>
+						<view class="item-btn">立即去领</view>
+					</navigator>
 				</view>
-				<view class="list-item">
-					<view class="u-font-28 item-title">汽车保养</view>
-					<view class="u-font-22 item-content">品牌连锁店任君选</view>
-					<view class="item-btn">
-						<u-button type="primary" size="mini" hair-line="false" shape="circle" :custom-style="customStyle">立即去领</u-button>
-					</view>
+				<view class="list-item service3 u-skeleton-fillet">
+					<navigator url="/subPackages/shop/shop?isWx=1" hover-class="none">
+						<view class="u-font-28 item-title">汽车维修</view>
+						<view class="u-font-22 item-content">快速维修免排队</view>
+						<view class="item-btn">立即去领</view>
+					</navigator>
 				</view>
-				<view class="list-item">
-					<view class="u-font-28 item-title">汽车保养</view>
-					<view class="u-font-22 item-content">品牌连锁店任君选</view>
-					<view class="item-btn">
-						<u-button type="primary" size="mini" hair-line="false" shape="circle" :custom-style="customStyle">立即去领</u-button>
-					</view>
+				<view class="list-item service4 u-skeleton-fillet">
+					<navigator url="/pages/sos/sos" open-type="switchTab" hover-class="none">
+						<view class="u-font-28 item-title">道路救援</view>
+						<view class="u-font-22 item-content">搭电换胎全免费</view>
+						<view class="item-btn">立即去领</view>						
+					</navigator>
 				</view>
 			</view>
 		</view>
 		<view class="u-padding-left-30 u-padding-right-30 u-margin-top-20 around-service">
 			<view class="u-flex u-row-between common-header-wrap">
-				<view class="title">
-					<u-icon name="map"></u-icon>
-					<text class="u-font-28">附近洗车</text>
-				</view>
-				<view class="sub-title" @click="seeAll">
-					<text class="u-font-22">查看全部</text>
+				<view class="title u-skeleton-fillet">
+					<u-icon name="map-fill" color="#1672ff" size="40"></u-icon>
+					<text class="u-font-28 u-margin-left-16">附近洗车</text>
 				</view>
 			</view>
 			<view class="wrap">
-				<view v-for="ele in shopList" class="shop-list" :key="ele.id">
-					<view class="u-relative list-item">
-						<view class="u-flex list-content">
-							<u-image class="img" :src="ele.shopImg" width="234" height="161" :fade="true" :lazy-load="true">
-								<u-loading slot="loading"></u-loading>
-							</u-image>
-							<!-- <image class="img" ></image> -->
-							<view class="shop-info">
-								<view class="shop-name">
-									<text class="u-font-28">{{ele.shopName}}</text>
-								</view>
-								<view class="shop-rate">
-									<u-rate active-color="#ffba09" size="26" :count="count" v-model="ele.rating" disabled></u-rate>
-									<text class="u-font-26">{{ele.rating + '分'}}</text>
-								</view>
-								<view class="u-font-22 u-line-1 shop-address">{{ele.shopAddress}}</view>
-								<view class="u-flex">
-									<view class="shop-distance">
-										<u-icon name="map"></u-icon>
-										<text>330m</text>
+				<view v-for="(ele,index) in shopList" class="shop-list u-skeleton-fillet" :key="index">
+					<view class="u-skeleton-fillet" @click="toDetail(ele)">
+						<view class="u-relative list-item">
+							<view class="u-flex list-content u-col-top">
+								<u-image class="img" :src="ele.shopImg" width="234" height="161" :fade="true" :lazy-load="true">
+									<u-loading slot="loading"></u-loading>
+								</u-image>
+								<view class="shop-info">
+									<view class="shop-name u-line-1">
+										<text class="u-font-28">{{ele.shopName}}</text>
 									</view>
-									<view class="shop-sale">
-										<u-icon name="shopping-cart"></u-icon>
-										<text>{{ele.goodsCount}}</text>
+									<view class="shop-rate">
+										<u-rate :current="ele.shopRating" :disabled="true"></u-rate>
+										<text class="u-font-26">{{ele.shopRating + '分'}}</text>
+									</view>
+									<view class="u-font-22 u-line-1 shop-address">{{ele.shopAddress}}</view>
+									<view class="u-flex">
+										<view class="shop-distance">
+											<u-icon name="map"></u-icon>
+											<text>{{getDistance(ele)}}</text>
+										</view>
+										<view class="shop-sale">
+											<u-icon name="shopping-cart"></u-icon>
+											<text>{{ele.goodsCount}}</text>
+										</view>
 									</view>
 								</view>
 							</view>
+							<view class="list-btn">
+								<u-button type="primary" size="mini" shape="circle" :custom-style="customStyle" hover-class="none"
+								 @click.stop="washCar(ele)">立即预约</u-button>
+							</view>
+							<u-line color="#f3f4f7"></u-line>
 						</view>
-						<view class="list-btn">
-							<u-button type="primary" size="mini" hair-line="false" shape="circle" :custom-style="customStyle" hover-class="none"
-							 @click="washCar(ele)">立即预约</u-button>
-						</view>
-						<u-line color="#f3f4f7"></u-line>
 					</view>
 				</view>
 				<view class="loadmore-wrap">
-					<u-loadmore :status="status" margin-top='20' margin-bottom="20" />
+					<u-loadmore :status="status" />
 				</view>
 			</view>
 		</view>
+		<u-skeleton :loading="loading" :animation="true" bgColor="#FFF"></u-skeleton>
+		<u-modal v-model="carModal" content="暂未绑定车辆" confirm-text="去绑定" @confirm="toAddCar" :show-title="false" :mask-close-able="true" :show-cancel-button="true"></u-modal>
 	</view>
 </template>
 
 <script>
+	import QQMapWX from "../../common/qqmap-wx-jssdk.js"
+	import * as config from "../../common/config.js"
+	
+	var qqmapsdk
 	export default {
 		data() {
 			return {
@@ -141,52 +124,217 @@
 					lineHeight: '40rpx'
 				},
 				status: 'loading',
-				page: 1,
-				list: [
-					'大众上半年亏损8亿欧元 迪斯再获监事...',
-					'身具双重任务 东风冲高“绘”岚图...'
-				]
+				page: 0,
+				latitude: '',
+				longitude:'',
+				address:'正在定位',
+				loading: true,
+				carModal: false
+			}
+		},
+		onPullDownRefresh() {
+			this.page = 0
+			this.shopList = []
+			this.status = 'loading'
+			this.getMerchatShopList(true)
+		},
+		onShow() {
+			this.latitude = uni.getStorageSync('latitude')
+			this.longitude = uni.getStorageSync('longitude')
+			this.address = uni.getStorageSync('address')
+			if(!uni.getStorageSync('latitude')) {
+				this.getLocation()
+			}else{
+				if(this.loading){
+					this.loading = false
+				}
+				this.getMerchatShopList()
 			}
 		},
 		onLoad() {
+			qqmapsdk = new QQMapWX({
+				key: config.WX_map_key
+			});
 			this.getBannerlist()
-			this.getMerchatShopList()
-			// 获取定位
-			// uni.getLocation({
-			//     type: 'wgs84',
-			// 	geocode: true,
-			//     success: function (res) {
-			// 		console.log(res)
-			//         console.log('当前位置的经度：' + res.longitude);
-			//         console.log('当前位置的纬度：' + res.latitude);
-			//     }
-			// });
 		},
 		methods: {
-			seeAll() {
+			getLocation() {
+				// 获取定位
+				let _this = this
+				uni.getLocation({
+				    type: 'gcj02',
+					isHighAccuracy: true,
+					geocode: true,
+				    success: function (res) {
+						var lat = res.latitude
+						var lon = res.longitude
+						qqmapsdk.reverseGeocoder({
+							location: lat + "," + lon,
+							success:(res,data)=>{
+								var address = res.result.formatted_addresses.recommend
+								_this.setLocation(lon,lat,address)
+							},
+						})
+				    }
+				});
+			},
+			handleClick(index) {
+				let selected = this.bannerList[index]
+				if(selected.page == 'share'){
+					uni.navigateTo({
+						url: '/subPackages/share/share'
+					})
+				}
+				if(selected.page == 'charge'){
+					uni.navigateTo({
+						url: '/pages/charge/charge'
+					})
+				}
+			},
+			toAddCar() {
 				uni.navigateTo({
-					url: "../allShop/allShop"
+					url:'/subPackages/myCar/myCar'
 				})
 			},
-			getBannerlist: function() {
+			toDetail(ele) {
+				if(uni.getStorageSync('token')){
+					if(uni.getStorageSync('carNumber')){
+						uni.navigateTo({
+							url:'/subPackages/shop/shopDetail/shopDetail?shopId=' + ele.id
+						})
+					}else{
+						this.carModal = true
+					}
+				}else{
+					uni.navigateTo({
+						url:'/pages/login/login'
+					})
+					
+				}
+			},
+			turnTo() {
+				uni.navigateTo({
+					url: '/subPackages/shop/shop'
+				})
+			},
+			setLocation(lon,lat,address) {
+				this.latitude = lat
+				this.longitude = lon
+				this.address = address
+				
+				uni.setStorageSync("latitude",lat)
+				uni.setStorageSync("longitude",lon)
+				uni.setStorageSync("address",address)
+				
+				this.page = 0
+				this.status = 'loading'
+				this.shopList = []
+				this.getMerchatShopList()
+				if(this.loading){
+					this.loading = false
+				}
+			},
+			
+			choseLocation() {
+				let _this = this
+				wx.chooseLocation({
+					success: (data) => {
+						console.log(data);
+						if (data.name) {
+							_this.setLocation(data.longitude,data.latitude,data.name)
+						}
+					},
+					fail: () => {
+						wx.getSetting({
+							success: function(res) {
+								var statu = res.authSetting;
+								console.log(statu);
+								if (!statu['scope.userLocation']) {
+									wx.showModal({
+										title: '是否授权当前位置',
+										content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+										success(tip) {
+											if (tip.confirm) {
+												wx.openSetting({
+													success: function(data) {
+														if (data.authSetting["scope.userLocation"] === true) {
+															wx.showToast({
+																title: '授权成功',
+																icon: 'success',
+																duration: 1000
+															})
+															//授权成功之后，再调用chooseLocation选择地方
+															setTimeout(function() {
+																_this.choseLocation()
+															}, 500)
+														}
+													}
+												})
+											} else {
+												wx.showToast({
+													title: '授权失败',
+													icon: 'none',
+													duration: 1000
+												})
+											}
+										}
+									})
+			
+								}
+							}
+						})
+					}
+				})
+			},
+			
+			getDistance(ele) {
+				return config.getDistance(ele.latitude,ele.longitude,uni.getStorageSync("latitude"),uni.getStorageSync("longitude"))
+			},
+			
+			getBannerlist() {
 				this.$u.api.getBanner().then(res => {
 					this.bannerList = res
+				}).catch(err=>{
+					console.log(err);
 				})
 			},
-			getMerchatShopList: function() {
+			getMerchatShopList(flag) {
+				this.page++
 				this.$u.api.getMerchatShopList({
+					type:'XC',
 					page: this.page
 				}).then(res => {
-					if (res.length < 9) {
+					
+					if (flag) {
+						uni.stopPullDownRefresh();
+					}
+					if (res.length < 10) {
 						this.status = 'nomore'
 					}
 					this.shopList = this.shopList.concat(res)
+				}).catch(err=>{
+					uni.showToast({
+						title: '啊哦，出错了，请稍后重试',
+						icon: 'none'
+					});
+					console.log(err);
+					this.status = 'nomore'
 				})
 			},
 			washCar(ele) {
-				uni.navigateTo({
-					url: '../washCar/washCar?data=' + JSON.stringify(ele)
-				})
+				if(uni.getStorageSync('token')){
+					if(uni.getStorageSync('carNumber')){
+						uni.navigateTo({
+							url: '/subPackages/washCar/washCar?data=' + JSON.stringify(ele)
+						})						
+					}else{
+						this.carModal = true
+					}
+				}else{
+					uni.navigateTo({
+						url: '/pages/login/login'
+					})
+				}
 			}
 		},
 		onReachBottom() {
@@ -194,7 +342,6 @@
 				return
 			}
 			this.status = 'loading';
-			this.page = ++this.page;
 			this.getMerchatShopList()
 		}
 	}
@@ -204,13 +351,16 @@
 	.color-ff8080 {
 		color: #ff8080;
 	}
-	.u-notice-bar  {
-		padding:  0 !important;
+
+	.u-notice-bar {
+		padding: 0 !important;
 	}
+
 	.u-news-item {
 		font-size: 22rpx !important;
-		color: #666666 !important; 
+		color: #666666 !important;
 	}
+
 	.top {
 		height: 80rpx;
 		background-color: $uni-color-primary;
@@ -300,8 +450,6 @@
 			display: inline-block;
 			height: 172rpx;
 			width: 324rpx;
-			background: url(../../static/image/service.jpg) no-repeat center center;
-			background-size: cover;
 			padding-left: 16rpx;
 			padding-top: 30rpx;
 			margin: 0 10rpx 18rpx;
@@ -314,9 +462,23 @@
 			.item-content {
 				line-height: 50rpx;
 			}
-
-			.item-btn {}
+			
+			.item-btn {
+				display: inline-block;
+				background-color: #ffba09;
+				color: #fff;
+				height: 20px;
+				line-height: 20px;
+				font-size: 22rpx;
+				width: auto;
+				padding: 0 20rpx;
+				border-radius: 100rpx;
+			}
 		}
+		.service1{background: url('/static/image/service1.png') no-repeat center center;background-size: cover;}
+		.service2{background: url('/static/image/service2.png') no-repeat center center;background-size: cover;}
+		.service3{background: url('/static/image/service3.png') no-repeat center center;background-size: cover;}
+		.service4{background: url('/static/image/service4.png') no-repeat center center;background-size: cover;}
 	}
 
 	.around-service {
@@ -334,6 +496,7 @@
 				}
 
 				.shop-name {
+					width: 90%;
 					font-weight: bold;
 				}
 
@@ -343,8 +506,8 @@
 
 				.shop-address {
 					color: $u-type-info;
-					line-height: 3;
-					width: 90%;
+					line-height: 2.5;
+					width: 400rpx;
 				}
 
 				.shop-distance,

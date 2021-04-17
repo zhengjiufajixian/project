@@ -34,7 +34,7 @@
           "name": "测试",
           "query": "",
           "id": 0,
-          "pathName": "pages/contact/contact"
+          "pathName": "subPackages/guide/guide"
         }
       ]
     }

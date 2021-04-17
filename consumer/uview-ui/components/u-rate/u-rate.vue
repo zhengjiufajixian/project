@@ -65,17 +65,17 @@ export default {
 		// 星星的大小，单位rpx
 		size: {
 			type: [Number, String],
-			default: 32
+			default: 24
 		},
 		// 未选中时的颜色
 		inactiveColor: {
 			type: String,
-			default: '#b2b2b2'
+			default: '#BBBBBB'
 		},
 		// 选中的颜色
 		activeColor: {
 			type: String,
-			default: '#FA3534'
+			default: '#ffba09'
 		},
 		// 星星之间的间距，单位rpx
 		gutter: {
@@ -100,7 +100,7 @@ export default {
 		// 未选中时的图标(星星)
 		inactiveIcon: {
 			type: String,
-			default: 'star'
+			default: 'star-fill'
 		},
 		// 自定义扩展前缀，方便用户扩展自己的图标库
 		customPrefix: {

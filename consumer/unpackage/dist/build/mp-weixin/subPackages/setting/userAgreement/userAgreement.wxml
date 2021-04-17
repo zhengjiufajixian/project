@@ -1,0 +1,1 @@
+<view class="u-padding-left-35 u-padding-right-35"><view class="u-text-center"><view class="u-font-36 u-margin-top-30">广莱车友汇网络科技有限公司</view><view class="u-font-36 u-margin-bottom-30">用户使用协议</view></view><view class="content"><u-parse vue-id="79945536-1" html="{{txt}}" bind:__l="__l"></u-parse></view></view>

@@ -1,0 +1,1 @@
+{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;wEAAA,qBACA,sBACA,0E,mDACAA,EAAWC,a","file":"subPackages/booking/bookingDetaiil/bookingDetaiil.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './subPackages/booking/bookingDetaiil/bookingDetaiil.vue'\ncreatePage(Page)"],"sourceRoot":""}

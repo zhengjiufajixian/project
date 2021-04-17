@@ -20,4 +20,7 @@ Vue.use(httpInterceptor, app)
 import httpApi from '@/common/http.api.js'
 Vue.use(httpApi, app)
 
+let mpShare = require('uview-ui/libs/mixin/mpShare.js');
+Vue.mixin(mpShare)
+
 app.$mount()

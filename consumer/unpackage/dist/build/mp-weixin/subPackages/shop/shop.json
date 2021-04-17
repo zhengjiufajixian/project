@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-loading": "/uview-ui/components/u-loading/u-loading",
+    "u-rate": "/uview-ui/components/u-rate/u-rate",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-line": "/uview-ui/components/u-line/u-line",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "u-mask": "/uview-ui/components/u-mask/u-mask",
+    "u-modal": "/uview-ui/components/u-modal/u-modal"
+  }
+}

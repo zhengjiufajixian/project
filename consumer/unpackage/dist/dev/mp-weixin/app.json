@@ -1,90 +1,111 @@
 {
-	"pages": [
-		"pages/login/login",
-		"pages/index/index",
-		"pages/class/class",
-		"pages/sos/sos",
-		"pages/steward/steward",
-		"pages/my/my",
-		"pages/setting/setting",
-		"pages/setting/bindPhone/bindPhone",
-		"pages/my/info/info",
-		"pages/my/info/userName/userName",
-		"pages/my/info/gender/gender",
-		"pages/my/info/address/address",
-		"pages/my/info/address/addNewAddress/addNewAddress",
-		"pages/my/info/address/editAddress/editAddress",
-		"pages/my/info/editPhone/editPhone",
-		"pages/washCar/washCar",
-		"pages/pay/pay",
-		"pages/allShop/allShop",
-		"pages/order/order",
-		"pages/order/orderDetail/orderDetail",
-		"pages/wallet/wallet",
-		"pages/charge/charge",
-		"pages/vip/vip",
-		"pages/myCar/myCar",
-		"pages/setting/unregister/unregister",
-		"pages/setting/password/password",
-		"pages/setting/userAgreement/userAgreement",
-		"pages/setting/about/about",
-		"pages/setting/suggesstion/suggesstion",
-		"pages/contact/contact",
-		"pages/order/rate/rate"
-	],
-	"subPackages": [],
-	"window": {
-		"navigationBarTextStyle": "black",
-		"navigationBarBackgroundColor": "#16AEFF",
-		"backgroundColor": "#F8F8F8"
-	},
-	"tabBar": {
-		"color": "#3E4458",
-		"selectedColor": "#1672FF",
-		"list": [
-			{
-				"pagePath": "pages/index/index",
-				"iconPath": "static/tabs/home.png",
-				"selectedIconPath": "static/tabs/home-active.png",
-				"text": "首页"
-			},
-			{
-				"pagePath": "pages/class/class",
-				"iconPath": "static/tabs/class.png",
-				"selectedIconPath": "static/tabs/class-active.png",
-				"text": "课堂"
-			},
-			{
-				"pagePath": "pages/sos/sos",
-				"iconPath": "static/tabs/sos.png",
-				"selectedIconPath": "static/tabs/sos.png",
-				"text": "SOS"
-			},
-			{
-				"pagePath": "pages/steward/steward",
-				"iconPath": "static/tabs/steward.png",
-				"selectedIconPath": "static/tabs/steward-active.png",
-				"text": "车管家"
-			},
-			{
-				"pagePath": "pages/my/my",
-				"iconPath": "static/tabs/my.png",
-				"selectedIconPath": "static/tabs/my-active.png",
-				"text": "我的"
-			}
-		]
-	},
-	"permission": {
-		"scope.userLocation": {
-			"desc": "你的位置信息将用于小程序定位"
-		}
-	},
-	"plugins": {
-		"routePlan": {
-			"version": "1.0.11",
-			"provider": "wx50b5593e81dd937a"
-		}
-	},
-	"usingComponents": {},
-	"sitemapLocation": "sitemap77.json"
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/class/class",
+    "pages/sos/sos",
+    "pages/my/my",
+    "pages/charge/charge"
+  ],
+  "subPackages": [
+    {
+      "root": "subPackages",
+      "pages": [
+        "allClass/allClass",
+        "allShop/allShop",
+        "allShop/shopDetail/shopDetail",
+        "contact/contact",
+        "washCar/washCar",
+        "pay/pay",
+        "order/orderDetail/orderDetail",
+        "order/rate/rate",
+        "wallet/wallet",
+        "vip/vip",
+        "myCar/myCar",
+        "setting/setting",
+        "setting/unregister/unregister",
+        "setting/password/password",
+        "setting/userAgreement/userAgreement",
+        "setting/about/about",
+        "setting/suggesstion/suggesstion",
+        "setting/bindPhone/bindPhone",
+        "article/article",
+        "searchPage/searchPage",
+        "article/articleDetail/articleDetail",
+        "topic/topic",
+        "searchPage/searchResult/searchResult",
+        "myCar/addCar/addCar",
+        "message/message",
+        "messageDetail/messageDetail",
+        "shop/shop",
+        "notice/notice",
+        "booking/booking",
+        "apply_refund/apply_refund",
+        "maintenance/maintenance",
+        "booking/bookingDetail/bookingDetail",
+        "shop/shopDetail/shopDetail",
+        "newOrder/newOrder",
+        "apply_refund/detail/detail",
+        "rescue/rescue",
+        "rescue/orderDetail/orderDetail",
+        "share/share",
+        "guide/guide",
+        "guidePage/guidePage",
+        "info/info",
+        "info/userName/userName",
+        "info/gender/gender",
+        "info/address/address",
+        "info/address/addNewAddress/addNewAddress",
+        "info/address/editAddress/editAddress",
+        "info/editPhone/editPhone"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#16AEFF",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#3E4458",
+    "selectedColor": "#1672FF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "iconPath": "static/tabs/class.png",
+        "selectedIconPath": "static/tabs/class-active.png",
+        "text": "课堂"
+      },
+      {
+        "pagePath": "pages/sos/sos",
+        "iconPath": "static/tabs/sos.png",
+        "selectedIconPath": "static/tabs/sos-active.png",
+        "text": "SOS"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "static/tabs/my.png",
+        "selectedIconPath": "static/tabs/my-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.12",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
+  "usingComponents": {}
 }

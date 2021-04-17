@@ -24,17 +24,54 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.money.data-v-08dbfb46 {
+  background-color: #1672ff;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
+  height: 220rpx;
+  margin: 0 30rpx 40rpx;
+  padding-left: 20rpx;
+}
+.u-font-56.data-v-08dbfb46 {
+  font-size: 56rpx;
+}
+.list.data-v-08dbfb46 {
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+}
+.list-item.data-v-08dbfb46 {
+  display: inline-block;
+  width: 186rpx;
+  border: 2rpx solid #1672FF;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  line-height: 84rpx;
+  text-align: center;
+  color: #1672FF;
+  font-size: 36rpx;
+  margin-left: 33rpx;
+  margin-top: 30rpx;
+}
+.active.data-v-08dbfb46 {
+  background-color: #d6e6fe;
+}
+.pay-wrap.data-v-08dbfb46 {
+  height: 98rpx;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
+}
 .modal-wrap.data-v-08dbfb46 {
   width: 492rpx;
-  height: 280rpx;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  height: 300rpx;
 }
 .btn-wrap.data-v-08dbfb46 {
-  width: 80%;
-  margin: 150rpx auto 0;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
+  margin: 150rpx 30rpx 0;
+  text-align: center;
+  font-size: 38rpx;
+  color: #FFFFFF;
+  background-color: #1672FF;
+  line-height: 88rpx;
 }
 

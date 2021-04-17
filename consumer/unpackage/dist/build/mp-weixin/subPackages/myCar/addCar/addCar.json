@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "添加车辆",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-line": "/uview-ui/components/u-line/u-line",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-switch": "/uview-ui/components/u-switch/u-switch",
+    "u-keyboard": "/uview-ui/components/u-keyboard/u-keyboard",
+    "u-action-sheet": "/uview-ui/components/u-action-sheet/u-action-sheet"
+  }
+}

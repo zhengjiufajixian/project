@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "会员中心",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#3D3C3A",
+  "usingComponents": {
+    "u-avatar": "/uview-ui/components/u-avatar/u-avatar",
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-line": "/uview-ui/components/u-line/u-line",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-image": "/uview-ui/components/u-image/u-image"
+  }
+}

@@ -1,9 +1,10 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "登录",
   "enablePullDownRefresh": false,
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#1672ff",
   "usingComponents": {
-    "u-button": "/uview-ui/components/u-button/u-button"
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-image": "/uview-ui/components/u-image/u-image"
   }
 }

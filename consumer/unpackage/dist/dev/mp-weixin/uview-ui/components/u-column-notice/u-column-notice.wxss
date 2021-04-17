@@ -66,6 +66,9 @@
           flex: 1;
   margin-left: 12rpx;
 }
+.two-line-height.data-v-475fdbf0 {
+  height: 64rpx;
+}
 .u-swiper-item.data-v-475fdbf0 {
 
   display: -webkit-box;

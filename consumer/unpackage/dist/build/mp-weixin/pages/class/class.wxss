@@ -1,0 +1,1 @@
+.color-BABABA{color:#bababa}.color-7c8da8{color:#7c8da8}.color-282828{color:#282828}.active{color:#282828;font-weight:700;padding-bottom:0!important}.active .line{width:20rpx;margin:28rpx auto 15rpx;height:6rpx;-webkit-border-radius:10rpx;border-radius:10rpx;border:1rpx solid #1357bf;background:#1672ff}.pos-abs-left{position:absolute;left:0;bottom:0}

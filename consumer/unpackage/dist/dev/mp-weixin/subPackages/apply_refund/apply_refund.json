@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "申请退款",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-upload": "/uview-ui/components/u-upload/u-upload",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

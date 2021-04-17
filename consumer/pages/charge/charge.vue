@@ -1,6 +1,30 @@
 <template>
 	<view>
-		<view class="bg-white u-padding-top-32 u-padding-right-30 u-padding-bottom-30 u-padding-left-50">
+		<view class="u-padding-top-46 u-padding-bottom-46 u-margin-left-30 u-font-30 color-000000">选择充值金额</view>
+		<view class="u-flex u-row-between u-col-center money">
+			<view class="color-FFFFFF">
+				<view class="u-font-24">当前余额</view>
+				<view class="u-font-56 u-margin-top-10">￥ {{walletInfo.totalAmount}}</view>
+			</view>
+			<view class="u-margin-60">
+				<u-image :show-loading="false" src="/static/image/wallet.png" width="95" height="80" mode="widthFix"></u-image>
+			</view>
+		</view>
+		<view class="bg-white u-margin-left-30 u-margin-right-30 u-padding-bottom-30 list">
+			<view v-for="(item,index) in chargeList" @click="selected=item" :class="'list-item ' + (selected == item ? 'active' :'')"  :key="index">{{item}}元</view>
+		</view>
+		<view class="u-padding-top-46 u-padding-bottom-46 u-margin-left-30 u-font-30 color-000000">支付方式</view>
+		<view class="u-flex u-row-between u-margin-left-30 u-margin-right-30 pay-wrap u-padding-left-20 u-padding-right-20 bg-white">
+			<view class="u-flex">
+				<u-icon class="u-margin-right-18" size="40" color="#17d56b"  name="weixin-circle-fill"></u-icon>
+				<view class="u-font-30 color-000000">微信支付</view>
+			</view>
+			<u-image :show-loading="false" src="/static/image/checked.png" width="40" height="40" mode="widthFix"></u-image>
+		</view>
+		<view class="btn-wrap" @click="charge">
+			立即充值
+		</view>
+		<!-- <view class="bg-white u-padding-top-32 u-padding-right-30 u-padding-bottom-30 u-padding-left-50">
 			<view class="">
 				<text class="u-font-24 color-333333">充值金额</text>
 			</view>
@@ -8,7 +32,7 @@
 				<view class="u-flex">
 					<text class="u-font-40">￥</text>
 					<view class="u-flex-1">
-						<u-input v-model="value" type="number" :custom-style="customStyle" placeholder="请输入充值金额" />
+						<u-input v-model="value" type="digit" :custom-style="customStyle" placeholder="请输入充值金额" />
 					</view>
 				</view>
 				<u-line color="#F3F4F7"></u-line>
@@ -17,14 +41,14 @@
 		<u-gap height="20"></u-gap>
 		<view class="bg-white u-padding-top-20 u-padding-right-30 u-padding-left-50">
 			<view class="">
-				<text class="u-font-24 color-333333">付款方式</text>
+				<text class="u-font-24 color-333333">支付方式</text>
 			</view>
 			<view class="">
 				<radio-group>
 					<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in list" :key="item.value">
-						<view class=" u-padding-top-12 u-padding-bottom-12">
+						<view class="u-flex u-col-center u-padding-top-12 u-padding-bottom-12">
 							<radio :value="item.value" :checked="index === current" style="transform:scale(0.7)" />
-							<u-icon class="u-margin-left-16" size="30" name="weixin-circle-fill"></u-icon>
+							<u-icon class="u-margin-left-16" size="30" color="#17d56b"  name="weixin-circle-fill"></u-icon>
 							<text class="u-margin-left-12 u-font-26 color-333333">{{item.name}}</text>
 						</view>
 						<u-line color="#F3F4F7" v-if="index%2 == 0"></u-line>
@@ -35,14 +59,15 @@
 		<view class="btn-wrap">
 			<u-button type="primary" shape="circle" @click="charge">充值</u-button>
 		</view>
-		<u-mask :show="show">
+		 -->
+		<u-popup v-model="show" mode="center" :closeable="true">
 			<view class="modal-wrap u-text-center bg-white">
 				<view class="u-padding-top-66 u-flex u-row-center">
-					<u-image src="../../../static/image/pay_success.png" width="120" height="120" mode="aspectFit"></u-image>
+					<u-image src="/static/image/pay_success.png" width="120" height="120" mode="aspectFit"></u-image>
 				</view>
-				<view class="u-padding-top-30 color-333333 u-font-36 bold"><text>{{orderData.commodityPrice}}元支付成功</text></view>
+				<view class="u-padding-top-30 color-333333 u-font-36 bold"><text>{{chargeValue}}元充值成功</text></view>
 			</view>
-		</u-mask>
+		</u-popup>
 	</view>
 </template>
 
@@ -59,27 +84,45 @@
 					fontSize: "40rpx",
 					lineHeight: "40rpx",
 					height: "40rpx",
-					fontWeight: "bold",
 				},
 				list: [{
 					name: '微信',
 				}],
-				value: ''
+				value: '',
+				chargeValue : 0,
+				flag:'',
+				walletInfo:{
+					money:0
+				},
+				chargeList: [50,100,200,300,500,1000],
+				selected: '',
 			}
 		},
+		onShow() {
+			this.getWalletInfo()
+		},
+		onLoad(params) {
+			this.flag = params.flag
+		},
 		methods: {
+			getWalletInfo() {
+				this.$u.api.getWalletInfo().then(res => {
+					this.walletInfo = res.wallet
+				})
+			},
 			charge() {
-				if(!this.value){
+				if(!this.selected){
 					uni.showToast({
-						title: "请输入充值金额",
+						title: "请选择充值金额",
 						icon: "none"
 					})
 					return
 				}
+				// this.selected = Number(this.selected).toFixed(2)
 				let _this = this
 				this.$u.api.recharge({
 					userId: uni.getStorageSync("userId"),
-					money: this.value,
+					money: this.selected,
 					openId: uni.getStorageSync("openid"),
 					type: "WX"
 				}).then(res => {
@@ -101,15 +144,25 @@
 						signType: signType,
 						paySign: paySign,
 						success: function(res) {
+							_this.chargeValue = _this.selected
 							_this.show = true
 							_this.value = ''
-							console.log('支付成功');
+							if(_this.flag){
+								setTimeout(function(){
+									uni.navigateBack()
+								},1500)								
+							}
 						},
-						complete: function(res) {
-							console.log(res);
+						fail: function(res) {
+							uni.showToast({
+								title: '支付失败，请重试！',
+								icon: 'none'
+							})
 						}
 
 					})
+				}).catch(err=>{
+					console.log(err);
 				})
 			}
 		}
@@ -117,16 +170,53 @@
 </script>
 
 <style lang="scss" scoped>
+	.money {
+		background-color: #1672ff;
+		border-radius: 20rpx;
+		height: 220rpx;
+		margin: 0 30rpx 40rpx;
+		padding-left: 20rpx;
+	}
+	.u-font-56 {
+		font-size: 56rpx;
+	}
+	.list {
+		border-radius: 10rpx;
+	}
+	.list-item {
+		display: inline-block;
+		width: 186rpx;
+		border: 2rpx solid #1672FF;
+		border-radius: 10rpx;
+		line-height: 84rpx;
+		text-align: center;
+		color: #1672FF;
+		font-size: 36rpx;
+		margin-left: 33rpx;
+		margin-top: 30rpx;
+	}
+	.active {
+		background-color: #d6e6fe;
+	}
+	.pay-wrap {
+		height: 98rpx;
+		border-radius: 20rpx;
+	}
 	.modal-wrap {
 		width: 492rpx;
-		height: 280rpx;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%,-50%);
+		height: 300rpx;
+		// position: absolute;
+		// left: 50%;
+		// top: 50%;
+		// transform: translate(-50%,-50%);
 	}
 	.btn-wrap {
-		width: 80%;
-		margin: 150rpx auto 0;
+		border-radius: 20rpx;
+		margin: 150rpx 30rpx 0;
+		text-align: center;
+		font-size: 38rpx;
+		color: #FFFFFF;
+		background-color: #1672FF;
+		line-height: 88rpx;
 	}
 </style>

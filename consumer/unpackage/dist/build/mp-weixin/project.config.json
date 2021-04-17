@@ -21,8 +21,9 @@
         "checkSiteMap": false,
         "uploadWithSourceMap": true,
         "compileHotReLoad": false,
-        "useMultiFrameRuntime": false,
+        "useMultiFrameRuntime": true,
         "useApiHook": true,
+        "useApiHostProcess": false,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
@@ -42,8 +43,6 @@
     "libVersion": "",
     "appid": "wxb3891f1596d7086e",
     "projectname": "车友汇-客户端",
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
     "condition": {
         "search": {
             "list": []

@@ -95,12 +95,12 @@
 			// 上边距
 			marginTop: {
 				type: [String, Number],
-				default: 0
+				default: 30
 			},
 			// 下边距
 			marginBottom: {
 				type: [String, Number],
-				default: 0
+				default: 50
 			},
 			// 高度，单位rpx
 			height: {

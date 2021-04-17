@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "课堂专题",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-notice-bar": "/uview-ui/components/u-notice-bar/u-notice-bar",
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-line": "/uview-ui/components/u-line/u-line"
+  }
+}

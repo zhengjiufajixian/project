@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "邀请好友",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#f9692a",
+  "usingComponents": {
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-loadmore": "/uview-ui/components/u-loadmore/u-loadmore",
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
+    "u-mask": "/uview-ui/components/u-mask/u-mask"
+  }
+}

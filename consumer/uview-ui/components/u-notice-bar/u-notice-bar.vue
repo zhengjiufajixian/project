@@ -24,6 +24,7 @@
 		</block>
 		<block v-if="mode == 'vertical' || (mode == 'horizontal' && !isCircular)">
 			<u-column-notice
+				:displayLine="displayLine"
 				:type="type"
 				:color="color"
 				:bgColor="bgColor"
@@ -81,6 +82,10 @@
 export default {
 	name: "u-notice-bar",
 	props: {
+		displayLine: {
+			type: Number,
+			default: 1    //	默认一行（可选值1/2）
+		},
 		// 显示的内容，数组
 		list: {
 			type: Array,

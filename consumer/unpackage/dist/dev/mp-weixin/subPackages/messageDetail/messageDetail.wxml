@@ -1,0 +1,1 @@
+<view><view class="u-text-center u-font-32 color-333333 u-margin-top-34">{{''+noticeDetail.title+''}}</view><view class="u-text-center u-font-24 color-999999 u-margin-top-34">{{''+$root.g0+''}}</view><view class="content"><u-parse vue-id="8ba39a36-1" html="{{noticeDetail.content}}" bind:__l="__l"></u-parse></view></view>
