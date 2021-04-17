@@ -6,15 +6,15 @@
 				 swiperWidth="750"></u-tabs-swiper>
 			</view>
 			<swiper class="swiper-box" :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish">
-				<swiper-item class="swiper-item">
+				<swiper-item class="swiper-item" v-for="(swiperItem,swiperIndex) in list" :key="swiperIndex">
 					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<view class="page-box" v-if="commodityList[0].length>0">
-							<view class="order" v-for="(item, index) in commodityList[0]" :key="index">
+						<view class="page-box" v-if="commodityList[swiperIndex].length>0">
+							<view class="order" v-for="(item, index) in commodityList[swiperIndex]" :key="index">
 								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
 									<view class="color-333333">
 										商品ID: <text>{{item.id}}</text>
 									</view>
-									<view class="color-FFBA09">
+									<view class="color-333333">
 										{{getTextStatus(item.commodityStatus)}}
 									</view>
 								</view>
@@ -28,177 +28,28 @@
 									</view>
 								</view>
 								<view class="u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333 u-flex">
-									<view class="u-flex-3">
+									<view class="">
 										<text class="bold">服务明细：</text>
 									</view>
-									<view class="u-line-1 u-flex-9 text-height">
+									<view class="u-line-1 u-flex-1 text-height">
 										<text class="color-666666 ">{{item.commodityRemark}}</text>
 									</view>
 								</view>
 								<u-line color="#dfdfdf"></u-line>
 								<view class="u-flex u-col-center u-row-between">
 									<view class="color-999999">
-										{{getTime(item.createTime)}}
+										{{$u.timeFormat(new Date(item.createTime).getTime(), 'yyyy-mm-dd hh:MM' )}}
 									</view>
 									<view class="u-flex">
-										<navigator :url="'edit/edit?data='+ JSON.stringify(item)">
-											<text class="u-padding-20 color-666666">编辑修改</text>
-										</navigator>
-										<text class="u-padding-20 color-FFBA09" @click="changeStatus(item,index)">{{getButtonStatus(item.commodityStatus)}}</text>
+										<text class="u-padding-20 color-666666" @click="getBtnClick(item,index)">{{getBtnText(item.commodityStatus)}}</text>
+										<text :class="'u-padding-20 ' + (getBtnStyle(item.commodityStatus))" @click="changeStatus(item,index)">{{getBtnStatus(item.commodityStatus)}}</text>
 									</view>
 								</view>
 							</view>
-							<u-loadmore margin-top="20" margin-bottom="50" :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
+							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
 						</view>
 						<view class="page-box" v-else>
-							<u-empty text="数据为空" mode="list" marginTop="250"></u-empty>
-						</view>
-					</scroll-view>
-				</swiper-item>
-				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<view class="page-box" v-if="commodityList[1].length>0">
-							<view class="order" v-for="(item, index) in commodityList[1]" :key="index">
-								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
-									<view class="color-333333">
-										商品ID: <text>{{item.id}}</text>
-									</view>
-									<view class="color-FFBA09">
-										{{getTextStatus(item.commodityStatus)}}
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-26 u-padding-left-18 u-padding-right-18">
-									<view class="u-line-1 color-4A4A4A bold">
-										{{item.commodityName}}
-									</view>
-									<view class=" color-4a4a4a">
-										<text class="bold">价格：</text><text class="color-ff2828 u-font-30">￥{{item.commodityPrice}}</text>
-									</view>
-								</view>
-								<view class="u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333 u-flex">
-									<view class="u-flex-3">
-										<text class="bold">服务明细：</text>
-									</view>
-									<view class="u-line-1 u-flex-9 text-height">
-										<text class="color-666666 ">{{item.commodityRemark}}</text>
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between">
-									<view class="color-999999">
-										{{getTime(item.createTime)}}
-									</view>
-									<view class="u-flex">
-										<navigator :url="'edit/edit?data='+ JSON.stringify(item)">
-											<text class="u-padding-20 color-666666">编辑修改</text>
-										</navigator>
-										<text class="u-padding-20 color-FFBA09" @click="changeStatus(item,index)">{{getButtonStatus(item.commodityStatus)}}</text>
-									</view>
-								</view>
-							</view>
-							<u-loadmore margin-top="20" margin-bottom="20" :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view>
-						<view class="page-box" v-else>
-							<u-empty text="数据为空" mode="list" marginTop="250"></u-empty>
-						</view>
-					</scroll-view>
-				</swiper-item>
-				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<view class="page-box" v-if="commodityList[2]">
-							<view class="order" v-for="(item, index) in commodityList[2]" :key="index">
-								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
-									<view class="color-333333">
-										商品ID: <text>{{item.id}}</text>
-									</view>
-									<view class="color-FFBA09">
-										{{getTextStatus(item.commodityStatus)}}
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-26 u-padding-left-18 u-padding-right-18">
-									<view class="u-line-1 color-4A4A4A bold">
-										{{item.commodityName}}
-									</view>
-									<view class=" color-4a4a4a">
-										<text class="bold">价格：</text><text class="color-ff2828 u-font-30">￥{{item.commodityPrice}}</text>
-									</view>
-								</view>
-								<view class="u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333 u-flex">
-									<view class="u-flex-3">
-										<text class="bold">服务明细：</text>
-									</view>
-									<view class="u-line-1 u-flex-9 text-height">
-										<text class="color-666666 ">{{item.commodityRemark}}</text>
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between">
-									<view class="color-999999">
-										{{getTime(item.createTime)}}
-									</view>
-									<view class="u-flex">
-										<navigator :url="'edit/edit?data='+ JSON.stringify(item)">
-											<text class="u-padding-20 color-666666">编辑修改</text>
-										</navigator>
-										<text class="u-padding-20 color-FFBA09" @click="changeStatus(item,index)">{{getButtonStatus(item.commodityStatus)}}</text>
-									</view>
-								</view>
-							</view>
-							<u-loadmore margin-top="20" margin-bottom="20" :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view>
-						<view class="page-box" v-else>
-							<u-empty text="数据为空" mode="list" marginTop="250"></u-empty>
-						</view>
-					</scroll-view>
-				</swiper-item>
-				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<view class="page-box" v-if="commodityList[3].length>0">
-							<view class="order" v-for="(item, index) in commodityList[3]" :key="index">
-								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
-									<view class="color-333333">
-										商品ID: <text>{{item.id}}</text>
-									</view>
-									<view class="color-FFBA09">
-										{{getTextStatus(item.commodityStatus)}}
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-26 u-padding-left-18 u-padding-right-18">
-									<view class="u-line-1 color-4A4A4A bold">
-										{{item.commodityName}}
-									</view>
-									<view class=" color-4a4a4a">
-										<text class="bold">价格：</text><text class="color-ff2828 u-font-30">￥{{item.commodityPrice}}</text>
-									</view>
-								</view>
-								<view class="u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333 u-flex">
-									<view class="u-flex-3">
-										<text class="bold">服务明细：</text>
-									</view>
-									<view class="u-line-1 u-flex-9 text-height">
-										<text class="color-666666 ">{{item.commodityRemark}}</text>
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between">
-									<view class="color-999999">
-										{{getTime(item.createTime)}}
-									</view>
-									<view class="u-flex">
-										<navigator :url="'edit/edit?data='+ JSON.stringify(item)">
-											<text class="u-padding-20 color-666666">编辑修改</text>
-										</navigator>
-										<text class="u-padding-20 color-FFBA09" @click="changeStatus(item,index)">{{getButtonStatus(item.commodityStatus)}}</text>
-									</view>
-								</view>
-							</view>
-							<u-loadmore margin-top="20" margin-bottom="20" :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view>
-						<view class="page-box" v-else>
-							<u-empty text="数据为空" mode="list" marginTop="250"></u-empty>
+							<u-empty paddingTop="350" src="/static/image/nodata.png"></u-empty>
 						</view>
 					</scroll-view>
 				</swiper-item>
@@ -207,6 +58,9 @@
 		<view class="btn-wrap">
 			<u-button type="primary" shape="circle" @click="setPage">发布</u-button>
 		</view>
+		
+		<u-modal v-model="modalStatus" content="需要登录之后才能使用全部功能." :show-title="false" confirm-text='去登录'
+			@confirm="handleConfirm"></u-modal>
 	</view>
 </template>
 
@@ -214,20 +68,17 @@
 	export default {
 		data() {
 			return {
+				modalStatus: true,
 				list: [{
-						name: '全部'
-					},
-					{
-						name: '待上架'
-					},
-					{
-						name: '上架中'
-					},
-					{
-						name: '已下架'
-					}
-				],
-				currentPage:0,
+					name: '全部'
+				}, {
+					name: '待上架'
+				}, {
+					name: '上架中'
+				}, {
+					name: '已下架'
+				}],
+				currentPage: 0,
 				current: 0,
 				page: [1, 1, 1, 1],
 				commodityList: [
@@ -243,25 +94,20 @@
 			};
 		},
 		onShow() {
-			this.getCommodityList(0)
-			this.getCommodityList(1)
-			this.getCommodityList(2)
-			this.getCommodityList(3)
-		},
-		computed: {
-			// 价格小数
-			priceDecimal() {
-				return val => {
-					if (val !== parseInt(val)) return val.slice(-2);
-					else return '00';
-				};
-			},
-			// 价格整数
-			priceInt() {
-				return val => {
-					if (val !== parseInt(val)) return val.split('.')[0];
-					else return val;
-				};
+			this.modalStatus = !uni.getStorageSync('token')
+			this.loadStatus = ['loadmore', 'loadmore', 'loadmore', 'loadmore']
+			this.page = [1, 1, 1, 1]
+			this.commodityList = [
+				[],
+				[],
+				[],
+				[]
+			]
+			this.current = 0
+			this.currentPage = 0
+			this.swiperCurrent = 0
+			if(!this.modalStatus){
+				this.getCommodityList()
 			}
 		},
 		methods: {
@@ -269,10 +115,6 @@
 				uni.navigateTo({
 					url: 'publish/publish'
 				})
-			},
-			getTime(date) {
-				let time = new Date(date)
-				return time.getFullYear() + '-' + time.getMonth() + '-' + time.getDate()
 			},
 			getTextStatus(val) {
 				switch (val) {
@@ -289,7 +131,7 @@
 						break;
 				}
 			},
-			getButtonStatus(val) {
+			getBtnStatus(val) {
 				switch (val) {
 					case '1':
 						return '立即上架'
@@ -304,7 +146,64 @@
 						break;
 				}
 			},
-			// 0 全部 ，1 未上架 ，2 已上架，3 已下架
+			getBtnStyle(val) {
+				switch (val) {
+					case '1':
+						return 'color-FFBA09'
+						break;
+					case '2':
+						return 'color-FF0909'
+						break;
+					case '3':
+						return 'color-A62121'
+						break;
+					default:
+						break;
+				}
+			},
+			getBtnText(val) {
+				switch (val) {
+					case '1':
+						return '编辑修改'
+						break;
+					case '2':
+						return '编辑修改'
+						break;
+					case '3':
+						return '删除'
+						break;
+					default:
+						break;
+				}
+			},
+			getBtnClick(val,index) {
+				if (val.commodityStatus == 1 || val.commodityStatus == 2) {
+					uni.navigateTo({
+						url: 'edit/edit?data=' + JSON.stringify(val)
+					})
+				}
+				if (val.commodityStatus == 3) {
+					let status = 4
+					this.$u.api.setCommodityStatus({
+						commodityId: val.id,
+						status: status
+					}).then(res => {
+						// if(res){
+						uni.showToast({
+							title: '删除成功'
+						})
+						this.commodityList[this.currentPage].splice(index,1)
+						// this.$set(this.commodityList[this.currentPage][index], 'commodityStatus', status)
+						// }else{
+						// 	uni.showToast({
+						// 		title:'操作失败，请稍后重试',
+						// 		icon:'none'
+						// 	})
+						// }
+					})
+				}
+			},
+			// 0 全部 ，1 未上架 ，2 已上架，3 已下架，4 删除
 			getCommodityList(status) {
 				let current = status ? status : this.currentPage
 				if (this.loadStatus[current] == 'nomore') {
@@ -336,12 +235,19 @@
 					commodityId: data.id,
 					status: status
 				}).then(res => {
+
+					if (!(typeof res == 'object')) {
+						uni.showToast({
+							title: status == '2' ? '上架失败,请重试' : '下架失败，请重试',
+							icon: "none"
+						})
+						return
+					}
 					uni.showToast({
-						title: '修改成功'
+						title: status == '2' ? '上架成功' : '下架成功',
 					})
 					this.$set(this.commodityList[this.currentPage][index], 'commodityStatus', status)
 				})
-				
 			},
 			reachBottom() {
 				if (this.loadStatus[this.currentPage] == "nomore") {
@@ -375,7 +281,6 @@
 				this.page[this.currentPage] = 1
 				this.commodityList[this.currentPage] = []
 				this.loadStatus[this.currentPage] = 'loadmore'
-				this.getCommodityList()
 			},
 			transition({
 				detail: {
@@ -392,6 +297,10 @@
 				this.$refs.tabs.setFinishCurrent(current);
 				this.swiperCurrent = current;
 				this.current = current;
+				this.currentPage = current;
+				if(this.commodityList[current].length == 0) {
+					this.getCommodityList()
+				}
 			}
 		}
 	};
@@ -577,5 +486,17 @@
 		left: 50%;
 		bottom: 30rpx;
 		transform: translateX(-50%);
+	}
+
+	.color-FFBA09 {
+		color: #FFBA09;
+	}
+
+	.color-FF0909 {
+		color: #FF0909;
+	}
+
+	.color-A62121 {
+		color: #A62121;
 	}
 </style>

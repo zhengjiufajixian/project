@@ -1,11 +1,11 @@
 <template>
 	<view class="u-empty" v-if="show" :style="{
-		marginTop: marginTop + 'rpx'
+		paddingTop: paddingTop + 'rpx'
 	}">
 		<u-icon
 			:name="src ? src : 'empty-' + mode"
 			:custom-style="iconStyle"
-			:label="text ? text : icons[mode]"
+			
 			label-pos="bottom"
 			:label-color="color"
 			:label-size="fontSize"
@@ -63,7 +63,7 @@
 			// 图标的大小
 			iconSize: {
 				type: [String, Number],
-				default: 120
+				default: 360
 			},
 			// 文字大小，单位rpx
 			fontSize: {
@@ -78,7 +78,7 @@
 			//  图标宽度，单位rpx
 			imgWidth: {
 				type: [String, Number],
-				default: 120
+				default: 360
 			},
 			// 图标高度，单位rpx
 			imgHeight: {
@@ -91,7 +91,7 @@
 				default: true
 			},
 			// 组件距离上一个元素之间的距离
-			marginTop: {
+			paddingTop: {
 				type: [String, Number],
 				default: 0
 			},

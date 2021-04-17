@@ -1,0 +1,2 @@
+.addBtn{width:100rpx;height:100rpx;background-color:#efefef;-webkit-border-radius:10rpx;border-radius:10rpx}.set-location,
+.set-shopInfo{line-height:65rpx;font-size:30rpx;-webkit-border-radius:30rpx;border-radius:30rpx}.set-location{color:#fff;background-color:#d3d3d3}.set-shopInfo{color:#1672ff;background-color:#fff;-webkit-box-shadow:0 3rpx 28rpx 2rpx rgba(22,114,255,.09);box-shadow:0 3rpx 28rpx 2rpx rgba(22,114,255,.09)}

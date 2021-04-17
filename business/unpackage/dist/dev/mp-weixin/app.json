@@ -1,25 +1,60 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
-    "pages/register/register",
-    "pages/register/notice/notice",
-    "pages/register/submit/submit",
-    "pages/register/wait/wait",
+    "pages/login/login",
     "pages/order/order",
+    "pages/order/orderDetail/payBookingOrder/payBookingOrder",
     "pages/commodity/commodity",
     "pages/setting/setting",
     "pages/commodity/publish/publish",
     "pages/commodity/edit/edit",
     "pages/order/orderDetail/orderDetail",
     "pages/wallet/wallet",
-    "pages/withdraw/withdraw",
-    "pages/wallet/recordDetail/recordDetail"
+    "pages/wallet/recordDetail/recordDetail",
+    "pages/order/reply/reply",
+    "pages/setting/merchantName/merchantName",
+    "pages/setting/shopProfile/shopProfile",
+    "pages/setting/autoOpen/autoOpen",
+    "pages/setting/shopInfo/shopInfo",
+    "pages/setting/shopLocation/shopLocation",
+    "pages/setting/loginInfo/loginInfo",
+    "pages/setting/loginInfo/changePassword/changePassword",
+    "pages/setting/loginInfo/changePhone/changePhone",
+    "pages/setting/loginInfo/forgetPassword/forgetPassword",
+    "pages/setting/agreement/agreement",
+    "pages/verifyPhone/verifyPhone",
+    "pages/order/orderDetail/addImage/addImage",
+    "pages/orderPage/orderPage",
+    "pages/login/loginByPhone/loginByPhone"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "subPackages",
+      "pages": [
+        "analysis/analysis",
+        "contact/contact",
+        "register/register",
+        "register/notice/notice",
+        "register/submit/submit",
+        "register/wait/wait",
+        "gathering/gathering",
+        "withdraw/withdraw",
+        "forbid/forbid",
+        "gathering/addBankCart/addBankCart",
+        "bookingOrder/bookingOrder",
+        "bookingOrder/orderDetail/payBookingOrder/payBookingOrder",
+        "bookingOrder/orderDetail/orderDetail",
+        "setBusiness/setBusiness",
+        "bookingOrder/reply/reply",
+        "bookingOrder/orderDetail/addImage/addImage",
+        "guidePage/guidePage",
+        "guide/guide"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#16AEFF",
+    "navigationBarBackgroundColor": "#1672ff",
     "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
@@ -33,7 +68,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/orderPage/orderPage",
         "iconPath": "static/tabs/order.png",
         "selectedIconPath": "static/tabs/order-active.png",
         "text": "订单"

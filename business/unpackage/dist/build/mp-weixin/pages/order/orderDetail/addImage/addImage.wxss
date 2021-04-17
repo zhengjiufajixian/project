@@ -1,0 +1,2 @@
+.addBtn{padding:22rpx;background-color:#eaeff4;line-height:1}.confirm-btn,
+.cancel-btn{line-height:80rpx;font-size:30rpx;-webkit-border-radius:100rpx;border-radius:100rpx}.cancel-btn{color:#fff;background-color:#d3d3d3}.confirm-btn{color:#fff;background-color:#1672ff;-webkit-box-shadow:0 3rpx 28rpx 2rpx rgba(22,114,255,.09);box-shadow:0 3rpx 28rpx 2rpx rgba(22,114,255,.09)}

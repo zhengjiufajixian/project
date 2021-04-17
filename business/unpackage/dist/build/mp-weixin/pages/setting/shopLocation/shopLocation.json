@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "商家定位",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-gap": "/uview-ui/components/u-gap/u-gap"
+  }
+}

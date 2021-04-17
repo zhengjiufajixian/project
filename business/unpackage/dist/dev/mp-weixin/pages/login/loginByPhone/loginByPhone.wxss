@@ -1,0 +1,31 @@
+
+.yellow-btn,
+.blue-btn {
+	font-size: 36rpx;
+	text-align: center;
+	padding: 20rpx 0;
+	-webkit-border-radius: 40rpx;
+	        border-radius: 40rpx;
+	color: #FFFFFF;
+}
+.blue-btn {
+	background-color: #1672FF;
+}
+.yellow-btn {
+	background-color: #fcca03;
+	color: #000000;
+}
+page {
+	background: white;
+}
+.login-btn {
+	margin-top: 100rpx;
+	font-size: 36rpx;
+	text-align: center;
+	padding: 20rpx 0;
+	-webkit-border-radius: 40rpx;
+	        border-radius: 40rpx;
+	color: #FFFFFF;
+	background-color: #1672FF;
+}
+

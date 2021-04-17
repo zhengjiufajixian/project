@@ -27,8 +27,22 @@
 page {
   background-color: #f3f4f7;
 }
+.pos-abs-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.border-radius-30 {
+  -webkit-border-radius: 30rpx;
+          border-radius: 30rpx;
+}
 .color-1672FF {
   color: #1672FF;
+}
+.color-010101 {
+  color: #010101;
 }
 .color-333333 {
   color: #333333;
@@ -65,6 +79,9 @@ page {
 }
 .bg-white {
   background-color: #fff;
+}
+.line-height-36 {
+  line-height: 36rpx;
 }
 .u-relative,
 .u-rela {

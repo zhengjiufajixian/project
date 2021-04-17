@@ -2,13 +2,15 @@
   "navigationBarTitleText": "设置",
   "enablePullDownRefresh": false,
   "navigationBarTextStyle": "white",
-  "navigationBarBackgroundColor": "#167DFF",
+  "navigationBarBackgroundColor": "#1672ff",
   "usingComponents": {
     "u-gap": "/uview-ui/components/u-gap/u-gap",
     "u-section": "/uview-ui/components/u-section/u-section",
     "u-avatar": "/uview-ui/components/u-avatar/u-avatar",
     "u-icon": "/uview-ui/components/u-icon/u-icon",
     "u-line": "/uview-ui/components/u-line/u-line",
-    "u-toast": "/uview-ui/components/u-toast/u-toast"
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-toast": "/uview-ui/components/u-toast/u-toast",
+    "u-modal": "/uview-ui/components/u-modal/u-modal"
   }
 }

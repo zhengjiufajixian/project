@@ -1,0 +1,1 @@
+<view><view class="title">《湖北广莱车友汇商家入驻须知》</view><view class="content"><u-parse vue-id="18de5b53-1" html="{{txt}}" bind:__l="__l"></u-parse></view><view class="btn-wrap"><u-button vue-id="18de5b53-2" type="primary" shape="circle" data-event-opts="{{[['^click',[['setPage',['submit']]]]]}}" bind:click="__e" bind:__l="__l" vue-slots="{{['default']}}">我要入驻</u-button></view></view>

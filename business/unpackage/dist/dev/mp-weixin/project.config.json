@@ -34,7 +34,7 @@
           "name": "测试",
           "query": "",
           "id": 0,
-          "pathName": "pages/wallet/recordDetail/recordDetail"
+          "pathName": "pages/wallet/wallet"
         }
       ]
     }

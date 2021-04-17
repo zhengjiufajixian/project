@@ -1,1 +1,0 @@
-<view><u-image vue-id="116f0aca-1" src="../../../static/image/register_bg2.png" mode="widthFix" bind:__l="__l"></u-image><view class="btn-wrap"><u-button vue-id="116f0aca-2" type="primary" shape="circle" data-event-opts="{{[['^click',[['setPage',['submit']]]]]}}" bind:click="__e" bind:__l="__l" vue-slots="{{['default']}}">我要入驻</u-button></view></view>

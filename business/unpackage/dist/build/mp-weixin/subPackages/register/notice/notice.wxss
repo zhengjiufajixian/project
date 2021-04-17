@@ -1,0 +1,1 @@
+.title{text-align:center;font-size:32rpx;color:#000;margin-top:57rpx;margin-bottom:20rpx}.content{border:1rpx solid #eee;margin:0 auto;padding:20rpx 14rpx;line-height:1.5;width:690rpx;height:70vh;overflow-y:scroll;font-size:26rpx;color:#444}.btn-wrap{position:fixed;width:80%;left:50%;bottom:90rpx;-webkit-transform:translateX(-50%);transform:translateX(-50%)}

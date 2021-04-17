@@ -1,27 +1,21 @@
 
-.header.data-v-b237504c {
-	margin: 90rpx 0 90rpx 50rpx;
-	border-bottom: 1px solid #ccc;
+.yellow-btn,.blue-btn{
+	font-size: 36rpx;
 	text-align: center;
-	width: 650rpx;
-	height: 300rpx;
-	line-height: 450rpx;
+	padding: 20rpx 0;
+	-webkit-border-radius: 40rpx;
+	        border-radius: 40rpx;
+	color: #FFFFFF;
 }
-.header image.data-v-b237504c {
-	width: 200rpx;
-	height: 200rpx;
+.blue-btn {
+	background-color: #1672FF;
 }
-.content.data-v-b237504c {
-	margin-left: 50rpx;
-	margin-bottom: 90rpx;
+.yellow-btn {
+	background-color: #fcca03;
+	color: #000000;
 }
-.content text.data-v-b237504c {
-	display: block;
-	color: #9d9d9d;
-	margin-top: 40rpx;
+page{
+	background: white;
 }
-.btn-wrap.data-v-b237504c {
-	width: 80%;
-	margin: 0 auto;
-}
+
 

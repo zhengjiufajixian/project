@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "回复订单",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-gap": "/uview-ui/components/u-gap/u-gap",
+    "u-avatar": "/uview-ui/components/u-avatar/u-avatar",
+    "u-line": "/uview-ui/components/u-line/u-line",
+    "u-rate": "/uview-ui/components/u-rate/u-rate",
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-upload": "/uview-ui/components/u-upload/u-upload",
+    "u-icon": "/uview-ui/components/u-icon/u-icon",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

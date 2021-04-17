@@ -2,167 +2,55 @@
 	<view>
 		<view class="wrap">
 			<view class="u-tabs-box">
-				<u-tabs-swiper activeColor="#1672ff" ref="tabs" :list="list" :current="current" @change="change" :is-scroll="false"
-				 swiperWidth="750"></u-tabs-swiper>
+				<u-tabs-swiper activeColor="#1672ff" ref="tabs" :list="list" :current="current" @change="change"
+					:is-scroll="false" swiperWidth="750"></u-tabs-swiper>
 			</view>
-			<swiper class="swiper-box" :current="swiperCurrent" @transition="transition" @animationfinish="animationfinish">
-				<swiper-item class="swiper-item">
+			<swiper class="swiper-box" :current="swiperCurrent" @transition="transition"
+				@animationfinish="animationfinish">
+				<swiper-item class="swiper-item" v-for="(listItem,listIndex) in list" :key="listIndex">
 					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[0]" :key="res.id">
-								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
+						<view class="page-box" v-if="orderList[listIndex].length>0">
+							<navigator :url="'orderDetail/orderDetail?orderId='+item.id" class="order"
+								v-for="(item, index) in orderList[listIndex]" :key="index">
+								<view class="u-flex u-col-center u-row-between u-padding-bottom-20 u-font-24">
 									<view class="color-333333">
-										订单ID: <text>2021564654646</text>
+										订单ID: <text>{{item.id}}</text>
 									</view>
-									<view class="color-FFBA09">
-										服务中
+									<view class="color-333333">
+										{{getOrderStatus(item)}}
 									</view>
 								</view>
 								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-26 u-padding-left-18 u-padding-right-18">
+								<view
+									class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-14 u-padding-left-18 u-font-24 bold">
 									<view class="u-line-1 color-4A4A4A">
-										外观水蜡精洗
+										{{item.commodityName}}
 									</view>
 									<view class=" color-4a4a4a">
-										合计：<text class="color-ff2828">￥40</text>
+										合计：<text class="color-FF2828 u-font-28 bold">￥{{item.orderMoney}}</text>
 									</view>
 								</view>
-								<view class="u-line-1 u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333">
-									服务时间：<text class="color-666666">03-09 14：00</text>
+								<view
+									class="u-line-1 u-padding-bottom-16 u-padding-left-18 u-padding-right-18 color-333333 u-font-24 bold">
+									服务时间：<text
+										class="color-666666">{{$u.timeFormat(new Date(item.scheduledTime).getTime(), 'yyyy-mm-dd hh:MM' )}}</text>
 								</view>
 								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between">
-									<view class="color-999999">
-										2020-09-04 08:42
+								<view class="u-flex u-col-center u-row-between u-margin-top-14">
+									<view class="color-999999 u-font-24">
+										{{$u.timeFormat(new Date(item.createTime).getTime(), 'yyyy-mm-dd hh:MM:ss' )}}
 									</view>
-									<view class="u-flex">
-										<text class="u-padding-20 color-FFBA09">确认收款</text>
+									<view class="">
+										<u-button size="mini" shape="circle" hover-class="none" :hair-line="false"
+											:custom-style="getBtnStyle(item)" @click="getBtnClick(item,index)">
+											{{getBtnText(item)}}
+										</u-button>
 									</view>
 								</view>
-							</view>
-
-							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
+							</navigator>
+							<u-loadmore :status="loadStatus[listIndex]" bgColor="#f2f2f2"></u-loadmore>
 						</view>
-					</scroll-view>
-				</swiper-item>
-				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[1]" :key="res.id">
-								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
-									<view class="color-333333">
-										订单ID: <text>2021564654646</text>
-									</view>
-									<view class="color-FFBA09">
-										服务中
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-26 u-padding-left-18 u-padding-right-18">
-									<view class="u-line-1 color-4A4A4A">
-										外观水蜡精洗
-									</view>
-									<view class=" color-4a4a4a">
-										合计：<text class="color-ff2828">￥40</text>
-									</view>
-								</view>
-								<view class="u-line-1 u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333">
-									服务时间：<text class="color-666666">03-09 14：00</text>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between">
-									<view class="color-999999">
-										2020-09-04 08:42
-									</view>
-									<view class="u-flex">
-										<text class="u-padding-20 color-13E3A5">已完成</text>
-										<!-- <text class="u-padding-20 color-FFBA09">立即下架</text> -->
-									</view>
-								</view>
-							</view>
-
-							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view>
-					</scroll-view>
-				</swiper-item>
-				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;">
-						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[2]" :key="res.id">
-								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
-									<view class="color-333333">
-										订单ID: <text>2021564654646</text>
-									</view>
-									<view class="color-FFBA09">
-										服务中
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-26 u-padding-left-18 u-padding-right-18">
-									<view class="u-line-1 color-4A4A4A">
-										外观水蜡精洗
-									</view>
-									<view class=" color-4a4a4a">
-										合计：<text class="color-ff2828">￥40</text>
-									</view>
-								</view>
-								<view class="u-line-1 u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333">
-									服务时间：<text class="color-666666">03-09 14：00</text>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between">
-									<view class="color-999999">
-										2020-09-04 08:42
-									</view>
-									<view class="u-flex">
-										<text class="u-padding-20 color-FF2828">去回复</text>
-										<!-- <text class="u-padding-20 color-FFBA09">立即下架</text> -->
-									</view>
-								</view>
-							</view>
-
-							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view>
-					</scroll-view>
-				</swiper-item>
-				<swiper-item class="swiper-item">
-					<scroll-view scroll-y style="height: 100%;width: 100%;" @scrolltolower="reachBottom">
-						<view class="page-box">
-							<view class="order" v-for="(res, index) in orderList[3]" :key="res.id">
-								<view class="u-flex u-col-center u-row-between u-padding-bottom-20">
-									<view class="color-333333">
-										订单ID: <text>2021564654646</text>
-									</view>
-									<view class="color-FFBA09">
-										服务中
-									</view>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between u-padding-top-26 u-padding-bottom-26 u-padding-left-18 u-padding-right-18">
-									<view class="u-line-1 color-4A4A4A">
-										外观水蜡精洗
-									</view>
-									<view class=" color-4a4a4a">
-										合计：<text class="color-ff2828">￥40</text>
-									</view>
-								</view>
-								<view class="u-line-1 u-padding-bottom-32 u-padding-left-18 u-padding-right-18 color-333333">
-									服务时间：<text class="color-666666">03-09 14：00</text>
-								</view>
-								<u-line color="#dfdfdf"></u-line>
-								<view class="u-flex u-col-center u-row-between">
-									<view class="color-999999">
-										2020-09-04 08:42
-									</view>
-									<view class="u-flex">
-										<text class="u-padding-20 color-999999">无效订单</text>
-										<!-- <text class="u-padding-20 color-FFBA09">立即下架</text> -->
-									</view>
-								</view>
-							</view>
-
-							<u-loadmore :status="loadStatus[0]" bgColor="#f2f2f2"></u-loadmore>
-						</view>
+						<u-empty src="/static/image/nodata.png" v-else></u-empty>
 					</scroll-view>
 				</swiper-item>
 			</swiper>
@@ -174,145 +62,55 @@
 	export default {
 		data() {
 			return {
+				list: [{
+						name: '全部',
+						value: ""
+					},
+					// {
+					// 	name: '待确认',
+					// 	value: "WAIT"
+					// },
+					{
+						name: '服务中',
+						value: "EXECUTING"
+					},
+					{
+						name: '已完成',
+						value: "SUCCESS"
+					},
+					{
+						name: '已退款',
+						value: 'REFUND'
+					}
+				],
+				currentPage: 0,
+				current: 0,
+				page: [1, 1, 1, 1],
 				orderList: [
 					[],
 					[],
 					[],
 					[]
 				],
-				dataList: [{
-						id: 1,
-						store: '夏日流星限定贩卖',
-						deal: '交易成功',
-						goodsList: [{
-								goodsUrl: '//img13.360buyimg.com/n7/jfs/t1/103005/7/17719/314825/5e8c19faEb7eed50d/5b81ae4b2f7f3bb7.jpg',
-								title: '【冬日限定】现货 原创jk制服女2020冬装新款小清新宽松软糯毛衣外套女开衫短款百搭日系甜美风',
-								type: '灰色;M',
-								deliveryTime: '付款后30天内发货',
-								price: '348.58',
-								number: 2
-							},
-							{
-								goodsUrl: '//img12.360buyimg.com/n7/jfs/t1/102191/19/9072/330688/5e0af7cfE17698872/c91c00d713bf729a.jpg',
-								title: '【葡萄藤】现货 小清新学院风制服格裙百褶裙女短款百搭日系甜美风原创jk制服女2020新款',
-								type: '45cm;S',
-								deliveryTime: '付款后30天内发货',
-								price: '135.00',
-								number: 1
-							}
-						]
-					},
-					{
-						id: 2,
-						store: '江南皮革厂',
-						deal: '交易失败',
-						goodsList: [{
-							goodsUrl: '//img14.360buyimg.com/n7/jfs/t1/60319/15/6105/406802/5d43f68aE9f00db8c/0affb7ac46c345e2.jpg',
-							title: '【冬日限定】现货 原创jk制服女2020冬装新款小清新宽松软糯毛衣外套女开衫短款百搭日系甜美风',
-							type: '粉色;M',
-							deliveryTime: '付款后7天内发货',
-							price: '128.05',
-							number: 1
-						}]
-					},
-					{
-						id: 3,
-						store: '三星旗舰店',
-						deal: '交易失败',
-						goodsList: [{
-								goodsUrl: '//img11.360buyimg.com/n7/jfs/t1/94448/29/2734/524808/5dd4cc16E990dfb6b/59c256f85a8c3757.jpg',
-								title: '三星（SAMSUNG）京品家电 UA65RUF70AJXXZ 65英寸4K超高清 HDR 京东微联 智能语音 教育资源液晶电视机',
-								type: '4K，广色域',
-								deliveryTime: '保质5年',
-								price: '1998',
-								number: 3
-							},
-							{
-								goodsUrl: '//img14.360buyimg.com/n7/jfs/t6007/205/4099529191/294869/ae4e6d4f/595dcf19Ndce3227d.jpg!q90.jpg',
-								title: '美的(Midea)639升 对开门冰箱 19分钟急速净味 一级能效冷藏双开门杀菌智能家用双变频节能 BCD-639WKPZM(E)',
-								type: '容量大，速冻',
-								deliveryTime: '保质5年',
-								price: '2354',
-								number: 1
-							}
-						]
-					},
-					{
-						id: 4,
-						store: '三星旗舰店',
-						deal: '交易失败',
-						goodsList: [{
-								goodsUrl: '//img10.360buyimg.com/n7/jfs/t22300/31/1505958241/171936/9e201a89/5b2b12ffNe6dbb594.jpg!q90.jpg',
-								title: '法国进口红酒 拉菲（LAFITE）传奇波尔多干红葡萄酒750ml*6整箱装',
-								type: '4K，广色域',
-								deliveryTime: '珍藏10年好酒',
-								price: '1543',
-								number: 3
-							},
-							{
-								goodsUrl: '//img10.360buyimg.com/n7/jfs/t1/107598/17/3766/525060/5e143aacE9a94d43c/03573ae60b8bf0ee.jpg',
-								title: '蓝妹（BLUE GIRL）酷爽啤酒 清啤 原装进口啤酒 罐装 500ml*9听 整箱装',
-								type: '一打',
-								deliveryTime: '口感好',
-								price: '120',
-								number: 1
-							}
-						]
-					},
-					{
-						id: 5,
-						store: '三星旗舰店',
-						deal: '交易成功',
-						goodsList: [{
-							goodsUrl: '//img12.360buyimg.com/n7/jfs/t1/52408/35/3554/78293/5d12e9cfEfd118ba1/ba5995e62cbd747f.jpg!q90.jpg',
-							title: '企业微信 中控人脸指纹识别考勤机刷脸机 无线签到异地多店打卡机WX108',
-							type: '识别效率高',
-							deliveryTime: '使用方便',
-							price: '451',
-							number: 9
-						}]
-					}
-				],
-				list: [{
-						name: '全部'
-					},
-					{
-						name: '服务中'
-					},
-					{
-						name: '待回复'
-					},
-					{
-						name: '已完成'
-					}
-				],
-				current: 0,
 				swiperCurrent: 0,
 				tabsHeight: 0,
 				dx: 0,
 				loadStatus: ['loadmore', 'loadmore', 'loadmore', 'loadmore'],
 			};
 		},
-		onLoad() {
-			this.getOrderList(0);
-			this.getOrderList(1);
-			this.getOrderList(3);
-		},
-		computed: {
-			// 价格小数
-			priceDecimal() {
-				return val => {
-					if (val !== parseInt(val)) return val.slice(-2);
-					else return '00';
-				};
-			},
-			// 价格整数
-			priceInt() {
-				return val => {
-					if (val !== parseInt(val)) return val.split('.')[0];
-					else return val;
-				};
-			}
+		onShow() {
+			this.loadStatus = ['loadmore', 'loadmore', 'loadmore', 'loadmore']
+			this.page = [1, 1, 1, 1]
+			this.orderList = [
+				[],
+				[],
+				[],
+				[]
+			]
+			this.current = 0
+			this.currentPage = 0
+			this.swiperCurrent = 0
+			this.getOrderList()
 		},
 		methods: {
 			setPage() {
@@ -320,24 +118,180 @@
 					url: 'publish/publish'
 				})
 			},
-			reachBottom() {
-				// 此tab为空数据
-				if (this.current != 2) {
-					this.loadStatus.splice(this.current, 1, "loading")
-					setTimeout(() => {
-						this.getOrderList(this.current);
-					}, 1200);
+			customStyle() {
+				return {}
+			},
+			getOrderStatus(val) {
+				switch (val.orderStatus) {
+					case 'WAITCONFIRM':
+						return '待接单'
+						break;
+					case 'PAYOFF':
+						return '待支付'
+						break;
+					case 'EXECUTING':
+						return '服务中'
+						break;
+					case 'SUCCESS':
+						return '已完成'
+						break;
+					case 'REFUND':
+						return '已退款'
+						break;
+					default:
+						return ''
+						break;
 				}
 			},
-			// 页面数据
-			getOrderList(idx) {
-				for (let i = 0; i < 5; i++) {
-					let index = this.$u.random(0, this.dataList.length - 1);
-					let data = JSON.parse(JSON.stringify(this.dataList[index]));
-					data.id = this.$u.guid();
-					this.orderList[idx].push(data);
+			getBtnText(val) {
+				switch (val.orderStatus) {
+					case 'WAITCONFIRM':
+						return '确认接单'
+						break;
+					case 'PAYOFF':
+						return '待支付'
+						break;
+					case 'EXECUTING':
+						return '确认收款'
+						break;
+					case 'SUCCESS':
+						if (val.refund == 1) {
+							return "已申请退款"
+						} else {
+							return val.evaluate == 0 ? "待评价" : "去回复"
+						}
+						break;
+					case 'REFUND':
+						return '已退款'
+						break;
+					default:
+						return ''
+						break;
 				}
-				this.loadStatus.splice(this.current, 1, "loadmore")
+			},
+			getBtnStyle(val) {
+				switch (val.orderStatus) {
+					case 'INIT':
+						return {
+							color: "#FFBA09",
+								borderColor: "#FFBA09"
+						}
+						break;
+					case 'WAITCONFIRM':
+						return {
+							color: "#FFBA09",
+								borderColor: "#FFBA09"
+						}
+						break;
+					case 'PAYOFF':
+						return {
+							color: "#FFBA09",
+								borderColor: "#FFBA09"
+						}
+						break;
+					case 'EXECUTING':
+						return {
+							color: "#FFBA09",
+								borderColor: "#FFBA09"
+						}
+						break;
+
+					case 'SUCCESS':
+						if (val.evaluate == 0) {
+							return {
+								color: "#FF2828",
+								borderColor: "#FF2828"
+							}
+						} else {
+							return {
+								color: "#13E3A5",
+								borderColor: "#13E3A5"
+							}
+						}
+						break;
+					case 'REFUND':
+						return {
+							color: "#999999",
+								borderColor: "#999999"
+						}
+						break;
+					case 'FAIL':
+						return {
+							color: "#999999",
+								borderColor: "#999999"
+						}
+						break;
+					default:
+						break;
+				}
+			},
+			getBtnClick(val, index) {
+				uni.navigateTo({
+					url: '/pages/order/orderDetail/orderDetail?orderId=' + val.id
+				})
+				return
+
+				let status = "SUCCESS"
+				if (val.orderStatus == "EXECUTING") {
+					this.$u.api.setOrderStatus({
+						orderId: val.id,
+						status: status
+					}).then(res => {
+						if (res) {
+							uni.showToast({
+								title: '修改成功'
+							})
+							this.$set(this.orderList[this.currentPage][index], 'orderStatus', status)
+						} else {
+							uni.showToast({
+								icon: "none",
+								title: '修改失败，请重试'
+							})
+						}
+					})
+				}
+				if (val.orderStatus == "SUCCESS") {
+					if (val.evaluate == 0) {
+						uni.showToast({
+							title: '等待用户评价',
+							icon: 'none'
+						})
+					}
+					if (val.evaluate == 1) {
+						uni.navigateTo({
+							url: 'reply/reply?orderId=' + val.id
+						})
+					}
+				}
+			},
+			getOrderList(status) {
+				let current = status ? status : this.currentPage
+				if (this.loadStatus[current] == 'nomore') {
+					return
+				}
+				this.$u.api.getOrderList({
+					page: this.page[current],
+					status: this.list[current].value,
+					orderType: 'XC'
+				}).then(res => {
+					if (res.length < 10) {
+						this.loadStatus.splice(current, 1, 'nomore')
+					} else {
+						this.loadStatus.splice(current, 1, 'loadmore')
+					}
+					let arr = this.orderList[current].concat(res)
+
+					this.orderList.splice(current, 1, arr)
+				})
+			},
+			reachBottom() {
+				if (this.loadStatus[this.currentPage] == "nomore") {
+					return
+				}
+				let page = this.page[this.currentPage]
+				page++
+				this.page.splice(this.currentPage, 1, page)
+				this.getOrderList()
 			},
 			// 总价
 			totalPrice(item) {
@@ -358,7 +312,10 @@
 			// tab栏切换
 			change(index) {
 				this.swiperCurrent = index;
-				this.getOrderList(index);
+				this.currentPage = index
+				this.page[this.currentPage] = 1
+				this.orderList[this.currentPage] = []
+				this.loadStatus[this.currentPage] = 'loadmore'
 			},
 			transition({
 				detail: {
@@ -375,6 +332,10 @@
 				this.$refs.tabs.setFinishCurrent(current);
 				this.swiperCurrent = current;
 				this.current = current;
+				this.currentPage = current;
+				if (this.orderList[current].length == 0) {
+					this.getOrderList()
+				}
 			}
 		}
 	};
@@ -391,7 +352,6 @@
 </style>
 
 <style lang="scss" scoped>
-
 	.order {
 		background-color: #ffffff;
 		box-sizing: border-box;

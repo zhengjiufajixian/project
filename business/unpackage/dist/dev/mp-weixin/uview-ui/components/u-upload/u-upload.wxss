@@ -43,7 +43,6 @@
 .u-list-item.data-v-0d33af60 {
   width: 200rpx;
   height: 200rpx;
-  overflow: hidden;
   margin: 10rpx;
   background: #f4f5f6;
   position: relative;
@@ -86,8 +85,8 @@
 }
 .u-delete-icon.data-v-0d33af60 {
   position: absolute;
-  top: 10rpx;
-  right: 10rpx;
+  top: -22rpx;
+  right: -22rpx;
   z-index: 10;
   background-color: #fa3534;
   -webkit-border-radius: 100rpx;

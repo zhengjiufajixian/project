@@ -1,0 +1,1 @@
+.list-item{display:inline-block;width:50%;-webkit-box-sizing:border-box;box-sizing:border-box;color:#333;font-size:24rpx;text-align:center;padding:10rpx}.list-item .item-border{line-height:42rpx;border:1rpx solid #999}

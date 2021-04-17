@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "验证手机号",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-verification-code": "/uview-ui/components/u-verification-code/u-verification-code",
+    "u-gap": "/uview-ui/components/u-gap/u-gap"
+  }
+}

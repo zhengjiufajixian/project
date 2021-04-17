@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "营业设置",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-switch": "/uview-ui/components/u-switch/u-switch",
+    "u-picker": "/uview-ui/components/u-picker/u-picker"
+  }
+}

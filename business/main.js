@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import App from './App'
 import uView from "uview-ui";
-import tool from 'common/tool.js'
 
 Vue.config.productionTip = false
-Vue.prototype.tool = tool
 
 App.mpType = 'app'
 
@@ -22,9 +20,7 @@ Vue.use(httpInterceptor, app)
 import httpApi from '@/common/http.api.js'
 Vue.use(httpApi, app)
 
-// import api from '@/common/vmeitime-http/'
-
-// // 全局挂载后使用
-// Vue.prototype.$api = api
+let mpShare = require('uview-ui/libs/mixin/mpShare.js');
+Vue.mixin(mpShare)
 
 app.$mount()

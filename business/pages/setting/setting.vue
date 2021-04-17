@@ -4,62 +4,61 @@
 		<view class="setting-wrap">
 			<view class="setting-item" @click="album">
 				<u-section color="#333333" title="头像" :show-line="false" :bold="false" font-size="26">
-					<u-avatar :src="userInfo.merchantImg" size="mini" slot="right"></u-avatar>
-					<u-icon name="arrow-right" size="28" slot="right"></u-icon>
+					<u-avatar :src="userInfo.merchantImg" size="68" slot="right"></u-avatar>
+					<u-icon name="arrow-right" size="24" slot="right"></u-icon>
 				</u-section>
 			</view>
 			<u-line color="#f3f4f7"></u-line>
 		</view>
 		<view class="setting-wrap">
-			<view class="setting-item" @click="setPage('merchantName',userInfo.merchantName)">
-				<u-section color="#333333" title="昵称" :show-line="false" :bold="false" font-size="26">
-					<text color="#666666" slot="right">{{userInfo.merchantName}}</text>
-					<u-icon name="arrow-right" size="28" slot="right"></u-icon>
+			<navigator :url="'merchantName/merchantName?data=' + userInfo.merchantName" hover-class="none">
+				<view class="setting-item">
+					<u-section color="#333333" title="昵称" :show-line="false" :bold="false" font-size="26">
+						<text color="#666666" slot="right">{{userInfo.merchantName}}</text>
+						<u-icon name="arrow-right" size="24" slot="right"></u-icon>
+					</u-section>
+				</view>
+			</navigator>
+			<u-line color="#f3f4f7"></u-line>
+		</view>
+		<u-gap height="20"></u-gap>
+
+		<view class="setting-wrap" v-for="(item,index) in list" :key="index">
+			<navigator :url="item.url" hover-class="none">
+				<view class="setting-item">
+					<u-section color="#333333" :title="item.title" sub-title=" " :show-line="false" :bold="false"
+						font-size="26"></u-section>
+				</view>
+			</navigator>
+			<u-line color="#f3f4f7"></u-line>
+		</view>
+		
+		<u-gap height="20"></u-gap>
+		<view class="share-wrap">
+			<u-button type="default" open-type="share" class="setting-item" :hair-line="false" hover-class="none" :custom-style="customStyle">
+				<view class="share-btn u-flex u-row-between">
+					<view class="color-333333 u-font-26">邀请入驻</view>
+					<u-icon name="arrow-right" size="24" slot="right"></u-icon>
+				</view>
+			</u-button>
+			<u-line color="#f3f4f7"></u-line>
+		</view>
+		
+		<u-gap height="20"></u-gap>
+		<view class="setting-wrap" @click="quit">
+			<view class="setting-item">
+				<u-section color="#333333" title="退出登录" :show-line="false" :bold="false" font-size="26">
+					<u-icon name="arrow-right" size="24" slot="right"></u-icon>
 				</u-section>
 			</view>
 			<u-line color="#f3f4f7"></u-line>
 		</view>
 		<u-gap height="20"></u-gap>
-		<view class="setting-wrap">
-			<view class="setting-item" @click="setPage('bindPhone')">
-				<u-section color="#333333" title="身份认证" sub-title=" " :show-line="false" :bold="false" font-size="26"> </u-section>
-			</view>
-			<u-line color="#f3f4f7"></u-line>
-		</view>
-		<view class="setting-wrap">
-			<view class="setting-item" @click="setPage('shopProfile',userInfo.shopProfile)">
-				<u-section color="#333333" title="店铺简介" sub-title=" " :show-line="false" :bold="false" font-size="26">
-					<text color="#666666" slot="right">{{userInfo.shopProfile}}</text>
-					<u-icon name="arrow-right" size="28" slot="right"></u-icon>
-				</u-section>
-			</view>
-			<u-line color="#f3f4f7"></u-line>
-		</view>
-		<view class="setting-wrap">
-			<view class="setting-item" @click="setPage('shopAddress',userInfo.shopAddress)">
-				<u-section color="#333333" title="店铺地址" :show-line="false" :bold="false" font-size="26">
-					<text color="#666666" slot="right">{{userInfo.shopAddress}}</text>
-					<u-icon name="arrow-right" size="28" slot="right"></u-icon>
-				</u-section>
-			</view>
-			<u-line color="#f3f4f7"></u-line>
-		</view>
-		<view class="setting-wrap">
-			<view class="setting-item" @click="setPage('merchantPhone',userInfo.merchantPhone)">
-				<u-section color="#333333" title="店铺电话" :show-line="false" :bold="false" font-size="26">
-					<text color="#666666" slot="right">{{userInfo.merchantPhone}}</text>
-					<u-icon name="arrow-right" size="28" slot="right"></u-icon>
-				</u-section>
-			</view>
-			<u-line color="#f3f4f7"></u-line>
-		</view>
-		<view class="setting-wrap">
-			<view class="setting-item" @click="setPage('address')">
-				<u-section color="#333333" title="收款信息" sub-title=" " :show-line="false" :bold="false" font-size="26"></u-section>
-			</view>
-			<u-line color="#f3f4f7"></u-line>
-		</view>
+
 		<u-toast ref="uToast" />
+
+		<u-modal v-model="modalStatus" content="需要登录之后才能使用全部功能." :show-title="false" confirm-text='去登录'
+			@confirm="handleConfirm"></u-modal>
 	</view>
 </template>
 
@@ -68,13 +67,60 @@
 	export default {
 		data() {
 			return {
+				modalStatus: true,
 				userInfo: {},
+				list: [{
+					title: '店铺信息',
+					url: './shopInfo/shopInfo',
+				}, {
+					title: '登录信息',
+					url: './loginInfo/loginInfo',
+				}, {
+					title: '收款信息',
+					url: '../../subPackages/gathering/gathering',
+				}, {
+					title: '服务协议',
+					url: './agreement/agreement',
+				}, {
+					title: '商家定位',
+					url: './shopLocation/shopLocation',
+				}],
+				customStyle: {
+					border: 'none'
+				},
 			}
 		},
 		onShow() {
-			this.getUserInfo()
+			this.modalStatus = !uni.getStorageSync('token')
+			if (!this.modalStatus) {
+				this.getUserInfo()
+			}
+			this.$u.mpShare = {
+				title: '邀请注册', // 默认为小程序名称，可自定义
+				path: '/pages/login/login?inviteCode=' + uni.getStorageSync('promoCode'), // 默认为当前页面路径，一般无需修改，QQ小程序不支持
+				// 分享图标，路径可以是本地文件路径、代码包文件路径或者网络图片路径。
+				// 支持PNG及JPG，默认为当前页面的截图
+				imageUrl: '/static/image/share.jpg'
+			}
 		},
 		methods: {
+			quit() {
+				let _this = this
+				uni.clearStorage({
+					success: function() {
+						_this.$refs.uToast.show({
+							title: '退出成功，返回首页',
+							isTab: true,
+							url: '/pages/index/index'
+						})
+						// setTimeout(function(){
+						// 	uni.redirectTo({
+						// 		url:'/pages/index/index'
+						// 	})
+						// },500)
+					}
+				})
+			},
 			setPage(page, params) {
 				uni.navigateTo({
 					url: '/pages/my/info/' + page + "/" + page + "?" + page + "=" + params,
@@ -82,8 +128,10 @@
 			},
 			getUserInfo() {
 				this.$u.api.getUserInfo().then(res => {
-					uni.setStorageSync('merchantName',res.merchantName)
-					uni.setStorageSync('merchantImg',res.merchantImg)
+					uni.setStorageSync('merchantName', res.merchantName)
+					uni.setStorageSync('merchantImg', res.merchantImg)
+					uni.setStorageSync('merchantPhone', res.merchantPhone)
+					uni.setStorageSync('shopName', res.shopName)
 					this.userInfo = res
 				})
 			},
@@ -95,7 +143,7 @@
 					sourceType: ['album'], //album 从相册选图，camera 使用相机，默认二者都有。如需直接开相机或直接选相册，请只使用一个选项
 					success: function(res) {
 						uni.showLoading({
-							title:'上传中...',
+							title: '上传中...',
 							mask: true
 						})
 						uni.uploadFile({
@@ -103,10 +151,11 @@
 							filePath: res.tempFilePaths[0],
 							name: 'file',
 							header: {
-								Authorization: uni.getStorageSync('tokenHead') + uni.getStorageSync('token')
+								Authorization: uni.getStorageSync('tokenHead') + uni.getStorageSync(
+									'token')
 							},
 							formData: {
-								'type': 'head'
+								'type': config.uploadImgtype.head
 							},
 							success: (uploadFileRes) => {
 								console.log(uploadFileRes)
@@ -127,12 +176,23 @@
 </script>
 
 <style lang="scss">
+	.share-wrap {
+		.share-btn {
+			font-size: 26rpx;
+			width: 100%;
+			margin-left: 10rpx;
+		}
+	}
 	.setting-wrap {
 		background-color: #fff;
-		padding: 0 40rpx 0 30rpx;
+		padding: 5rpx 40rpx 5rpx 30rpx;
 
 		.u-section__title__text {
 			line-height: 3 !important;
+		}
+
+		.setting-item {
+			padding-left: 20rpx;
 		}
 	}
 

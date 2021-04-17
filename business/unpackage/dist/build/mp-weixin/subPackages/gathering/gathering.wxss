@@ -1,0 +1,1 @@
+.list-item{-webkit-border-radius:15rpx;border-radius:15rpx}.popup-wrap{width:580rpx}.input-wrap{width:180rpx;margin:0 auto}.btn-wrap{position:fixed;left:50%;bottom:58rpx;-webkit-transform:translateX(-50%);transform:translateX(-50%);width:396rpx;line-height:80rpx}

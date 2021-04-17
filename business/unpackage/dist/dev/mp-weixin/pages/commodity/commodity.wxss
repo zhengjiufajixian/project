@@ -202,4 +202,13 @@ page {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
+.color-FFBA09.data-v-24105262 {
+  color: #FFBA09;
+}
+.color-FF0909.data-v-24105262 {
+  color: #FF0909;
+}
+.color-A62121.data-v-24105262 {
+  color: #A62121;
+}
 

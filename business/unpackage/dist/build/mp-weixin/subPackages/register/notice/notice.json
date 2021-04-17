@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "店铺信息认证",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-parse": "/uview-ui/components/u-parse/u-parse",
+    "u-button": "/uview-ui/components/u-button/u-button"
+  }
+}

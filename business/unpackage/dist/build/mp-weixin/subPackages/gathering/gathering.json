@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "收款信息",
+  "enablePullDownRefresh": false,
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#1672ff",
+  "usingComponents": {
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-empty": "/uview-ui/components/u-empty/u-empty",
+    "u-button": "/uview-ui/components/u-button/u-button",
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "u-verification-code": "/uview-ui/components/u-verification-code/u-verification-code"
+  }
+}

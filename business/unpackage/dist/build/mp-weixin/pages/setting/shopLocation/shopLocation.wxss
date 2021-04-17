@@ -1,0 +1,2 @@
+.map-wrap{width:653rpx;height:409rpx;margin:50rpx auto;border:4rpx solid #1672ff;-webkit-border-radius:5rpx;border-radius:5rpx}.btn-wrap .set-location,
+.btn-wrap .set-shopInfo{line-height:65rpx;font-size:30rpx;-webkit-border-radius:30rpx;border-radius:30rpx}.btn-wrap .set-location{color:#fff;background-color:#d3d3d3}.btn-wrap .set-shopInfo{color:#1672ff;background-color:#fff;-webkit-box-shadow:0 3rpx 28rpx 2rpx rgba(22,114,255,.09);box-shadow:0 3rpx 28rpx 2rpx rgba(22,114,255,.09)}.color-0F0F0F{color:#0f0f0f}

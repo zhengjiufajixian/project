@@ -24,12 +24,20 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.share-wrap .share-btn {
+  font-size: 26rpx;
+  width: 100%;
+  margin-left: 10rpx;
+}
 .setting-wrap {
   background-color: #fff;
-  padding: 0 40rpx 0 30rpx;
+  padding: 5rpx 40rpx 5rpx 30rpx;
 }
 .setting-wrap .u-section__title__text {
   line-height: 3 !important;
+}
+.setting-wrap .setting-item {
+  padding-left: 20rpx;
 }
 .popup-wrap {
   width: 80%;

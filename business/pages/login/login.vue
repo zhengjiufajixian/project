@@ -1,20 +1,22 @@
 <template>
 	<view>
-		<view class='header'>
-			<image src='../../static/image/logo.png'></image>
+		<view>
+			<u-image src="/static/image/login-bg.jpg" mode="widthFix" width="100%" height="1100"></u-image>
 		</view>
-		<view class='content'>
-			<view class=""><text>申请获取以下权限</text></view>
-			<view class=""><text>获得你的公开信息(昵称，头像等)</text></view>
+		<view class="btn-wrap u-flex u-row-between u-margin-top-20 u-margin-bottom-30">
+			<view class="u-flex-6 u-margin-left-20 u-margin-right-10 blue-btn" @click="wechatLogin">微信登录</view>
+			<view class="u-flex-6 u-margin-right-20 u-margin-left-10 yellow-btn" @click="wechatLogin">注册</view>
 		</view>
-
-		<view class="btn-wrap">
-			<u-button type="primary" open-type="getUserInfo" shape="circle" @click="wechatLogin">授权登录</u-button>
+		<view class="btn-wrap color-333333 u-padding-top-20 u-padding-bottom-30 u-text-center">
+			<navigator url="/pages/login/loginByPhone/loginByPhone" hover-class="none">
+				手机号登录
+			</navigator>
 		</view>
 	</view>
 </template>
 
 <script>
+	import * as config from "../../common/config.js"
 	import WXBizDataCrypt from "../../common/WXBizDataCrypt.js"
 
 	export default {
@@ -23,78 +25,103 @@
 
 			}
 		},
-		onLoad() {
-			
+		onLoad(params) {
+			if(params.inviteCode) {
+				uni.setStorageSync('inviteCode', params.inviteCode)
+			}
 		},
 		methods: {
 			wechatLogin() {
 				let _this = this
+				uni.showLoading({
+					title:'请求中...'
+				})
 				uni.login({
 					success: function(res) {
+						if (!res.code) {
+							uni.showToast({
+								title: '啊哦，登录失败了，重新试试',
+								icon: 'none'
+							})
+							return
+						}
 						_this.$u.api.login({
 							code: res.code
 						}).then(res => {
-							console.log(res)
 							uni.setStorageSync('tokenHead', res.tokenHead)
+							uni.setStorageSync('token', res.token)
+							uni.setStorageSync('refreshToken', res.refreshToken)
 							uni.setStorageSync('openid', res.openid)
 							uni.setStorageSync('session_key', res.session_key)
 							uni.setStorageSync('merchantId', res.merchantId)
-							// uni.setStorageSync('shopId', res.shopId)
 							uni.setStorageSync('merchantStatus', res.merchantStatus)
-							uni.setStorageSync('token', res.token)
-							uni.setStorageSync('refreshToken', res.refreshToken)
-							uni.setStorageSync('merchantStatus', res.merchantStatus)
-							if (res.unionId) {
-								uni.setStorageSync('unionId', res.unionId)
-								_this.checkStatus()
-							} else {
-								wx.getUserInfo({
-									success: function(res) {
-										console.log(res);
-										var appId = 'wxdfec8f307cdae32c'
-										var sessionKey = uni.getStorageSync('session_key')
-										var encryptedData = res.encryptedData
+							_this.checkStatus()
+							uni.hideLoading()
+							// if (res.unionId) {
+							// 	uni.setStorageSync('unionId', res.unionId)
+							// 	_this.checkStatus()
+							// } else {
+							// 	wx.getUserInfo({
+							// 		success: function(res) {
+							// 			var appId = config.WX_appId
+							// 			var sessionKey = uni.getStorageSync('session_key')
+							// 			var encryptedData = res.encryptedData
 
-										var iv = res.iv
+							// 			var iv = res.iv
 
-										var pc = new WXBizDataCrypt(appId, sessionKey)
+							// 			var pc = new WXBizDataCrypt(appId, sessionKey)
 
-										var data = pc.decryptData(encryptedData, iv)
+							// 			var data = pc.decryptData(encryptedData, iv)
 
-										// console.log('解密后 data: ', data)
+							// 			// console.log('解密后 data: ', data)
 
-										_this.$u.api.saveUnionId({
-											merchantId: uni.getStorageSync("merchantId"),
-											unionId: data.unionId
-										}).then(res => {
-											uni.setStorageSync('unionId', data.unionId)
-											_this.checkStatus()
-										})
-									}
-								})
-							}
+							// 			_this.$u.api.saveUnionId({
+							// 				merchantId: uni.getStorageSync("merchantId"),
+							// 				unionId: data.unionId
+							// 			}).then(res => {
+							// 				uni.setStorageSync('unionId', data.unionId)
+							// 				console.log(data.unionId);
+							// 				_this.checkStatus()
+							// 			})
+							// 		}
+							// 	})
+							// }
 
+						})
+					},
+					fail: function(error) {
+						uni.showToast({
+							title: '啊哦，登录失败，重新试试',
+							icon: 'none'
 						})
 					}
 				})
 			},
 			checkStatus() {
-				let merchantStatus = Number(uni.getStorageSync("merchantStatus"))
+				if(!uni.getStorageSync('merchantStatus')){
+					return
+				}
+				let merchantStatus = Number(uni.getStorageSync('merchantStatus'))
 				// 0禁止登陆,1未审核,2等待审核,3审核成功
 				switch (merchantStatus) {
+					case 0:
+						uni.navigateTo({
+							url: "/subPackages/forbid/forbid"
+						})
+						break;
 					case 1:
-						uni.redirectTo({
-							url: "../register/register"
+						uni.navigateTo({
+							url: "/subPackages/register/notice/notice"
 						})
 						break;
 					case 2:
-						uni.redirectTo({
-							url: "../register/wait/wait"
+						uni.navigateTo({
+							url: "/subPackages/register/wait/wait"
 						})
 						break;
 					case 3:
 						uni.switchTab({
-							url:"../index/index"
+							url: "../index/index"
 						})
 						break;
 					default:
@@ -105,34 +132,23 @@
 	}
 </script>
 
-<style scoped>
-	.header {
-		margin: 90rpx 0 90rpx 50rpx;
-		border-bottom: 1px solid #ccc;
+<style >
+	.yellow-btn,.blue-btn{
+		font-size: 36rpx;
 		text-align: center;
-		width: 650rpx;
-		height: 300rpx;
-		line-height: 450rpx;
+		padding: 20rpx 0;
+		border-radius: 40rpx;
+		color: #FFFFFF;
 	}
-
-	.header image {
-		width: 200rpx;
-		height: 200rpx;
+	.blue-btn {
+		background-color: #1672FF;
 	}
-
-	.content {
-		margin-left: 50rpx;
-		margin-bottom: 90rpx;
+	.yellow-btn {
+		background-color: #fcca03;
+		color: #000000;
 	}
-
-	.content text {
-		display: block;
-		color: #9d9d9d;
-		margin-top: 40rpx;
+	page{
+		background: white;
 	}
-
-	.btn-wrap {
-		width: 80%;
-		margin: 0 auto;
-	}
+	
 </style>
