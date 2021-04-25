@@ -25,8 +25,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .btn.data-v-2c894083 {
-  -webkit-border-radius: 45rpx;
-          border-radius: 45rpx;
+  border-radius: 45rpx;
   background: #1672ff;
   color: #fff;
   line-height: 2.5;
@@ -44,8 +43,7 @@
 .cancel-btn.data-v-2c894083 {
   line-height: 80rpx;
   font-size: 30rpx;
-  -webkit-border-radius: 100rpx;
-          border-radius: 100rpx;
+  border-radius: 100rpx;
 }
 .cancel-btn.data-v-2c894083 {
   color: #FFFFFF;
@@ -54,7 +52,6 @@
 .confirm-btn.data-v-2c894083 {
   color: #FFFFFF;
   background-color: #1672ff;
-  -webkit-box-shadow: 0px 3rpx 28rpx 2rpx rgba(22, 114, 255, 0.09);
-          box-shadow: 0px 3rpx 28rpx 2rpx rgba(22, 114, 255, 0.09);
+  box-shadow: 0px 3rpx 28rpx 2rpx rgba(22, 114, 255, 0.09);
 }
 

@@ -34,8 +34,7 @@
   height: 90rpx;
   line-height: 90rpx;
   border: 1rpx solid #c0c0c0;
-  -webkit-border-radius: 10rpx;
-          border-radius: 10rpx;
+  border-radius: 10rpx;
   margin-right: 10rpx;
 }
 .input-wrap .active {
@@ -45,16 +44,14 @@
   width: 10rpx;
   height: 10rpx;
   background-color: #c0c0c0;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   margin: 0 26rpx 0 13rpx;
 }
 .btn-wrap {
   background-color: #1672ff;
   color: #FFFFFF;
   font-size: 34rpx;
-  -webkit-border-radius: 20rpx;
-          border-radius: 20rpx;
+  border-radius: 20rpx;
   text-align: center;
   line-height: 80rpx;
   margin: 107rpx 30rpx 0;

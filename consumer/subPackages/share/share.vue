@@ -86,7 +86,7 @@
 							<view class="u-margin-left-16">{{item.userName}}</view>
 						</view>
 						<view class="color-2C2E2D">
-							{{$u.timeFormat(new Date(item.createTime).getTime(), 'yyyy/mm/dd hh:MM:SS' )}}
+							{{$u.timeFormat(new Date(item.createTime).getTime(), 'yyyy/mm/dd hh:MM' )}}
 						</view>
 						<view class="color-FFFFFF bg-orange" v-if="item.id">邀请成功</view>
 						<view class="color-FFFFFF bg-gray" v-else>进行中...</view>

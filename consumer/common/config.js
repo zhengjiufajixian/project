@@ -1,8 +1,8 @@
 // uEnvDev
 if (process.env.NODE_ENV === 'development') {
-	// exports.baseUrl = 'http://47.96.37.228:3001'
+	exports.baseUrl = 'http://47.96.37.228:3001'
 	// exports.baseUrl = 'http://50b2cb8.nat123.cc:31507'
-	exports.baseUrl = 'https://hb.glcyh.com/app'
+	// exports.baseUrl = 'https://hb.glcyh.com/app'
 }
 // uEnvProd
 if (process.env.NODE_ENV === 'production') {

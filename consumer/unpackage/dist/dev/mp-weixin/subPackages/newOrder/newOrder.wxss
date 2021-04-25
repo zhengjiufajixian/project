@@ -33,8 +33,7 @@ page {
 /* 文章场景相关 */
 .order.data-v-7a2efce2 {
   background-color: #ffffff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 30rpx 30rpx 10rpx 30rpx;
   margin-top: 20rpx;
   font-size: 28rpx;
@@ -75,8 +74,7 @@ page {
 .order .item .left image.data-v-7a2efce2 {
   width: 200rpx;
   height: 200rpx;
-  -webkit-border-radius: 10rpx;
-          border-radius: 10rpx;
+  border-radius: 10rpx;
 }
 .order .item .content .title.data-v-7a2efce2 {
   font-size: 28rpx;
@@ -128,8 +126,7 @@ page {
 .order .bottom .btn.data-v-7a2efce2 {
   line-height: 52rpx;
   width: 160rpx;
-  -webkit-border-radius: 26rpx;
-          border-radius: 26rpx;
+  border-radius: 26rpx;
   border: 2rpx solid #e4e7ed;
   font-size: 26rpx;
   text-align: center;
@@ -147,8 +144,7 @@ page {
 .centre image.data-v-7a2efce2 {
   width: 164rpx;
   height: 164rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   margin-bottom: 20rpx;
 }
 .centre .tips.data-v-7a2efce2 {
@@ -159,12 +155,10 @@ page {
 .centre .btn.data-v-7a2efce2 {
   margin: 80rpx auto;
   width: 200rpx;
-  -webkit-border-radius: 32rpx;
-          border-radius: 32rpx;
+  border-radius: 32rpx;
   line-height: 64rpx;
   color: #ffffff;
   font-size: 26rpx;
-  background: -webkit-gradient(linear, right top, left top, from(#f9745a), to(#ff9e01));
   background: -webkit-linear-gradient(right, #f9745a 0%, #ff9e01 100%);
   background: linear-gradient(270deg, #f9745a 0%, #ff9e01 100%);
 }

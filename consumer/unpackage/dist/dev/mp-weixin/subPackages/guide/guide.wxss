@@ -48,8 +48,7 @@ page {
   background: #1672FF;
   color: #FFFFFF;
   text-align: center;
-  -webkit-border-radius: 40rpx;
-          border-radius: 40rpx;
+  border-radius: 40rpx;
   line-height: 60rpx;
 }
 .u-indicator-item-round-active {

@@ -45,11 +45,9 @@ movable-view {
   height: 60rpx;
   width: 100%;
   background-color: white;
-  -webkit-box-shadow: 0 0 16rpx 1rpx rgba(22, 114, 255, 0.19);
-          box-shadow: 0 0 16rpx 1rpx rgba(22, 114, 255, 0.19);
+  box-shadow: 0 0 16rpx 1rpx rgba(22, 114, 255, 0.19);
   line-height: 60rpx;
-  -webkit-border-radius: 40rpx 0 0 40rpx;
-          border-radius: 40rpx 0 0 40rpx;
+  border-radius: 40rpx 0 0 40rpx;
 }
 checkbox-group {
   width: 100%;

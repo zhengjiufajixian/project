@@ -455,6 +455,33 @@
 				"navigationBarBackgroundColor": "#1672ff"
 			}
 		}]
+	}, {
+		"root": "subPackages2",
+		"pages": [{
+			"path": "categray/categray",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "detail/detail",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false
+			}
+
+		}    ,{
+                    "path" : "list/list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

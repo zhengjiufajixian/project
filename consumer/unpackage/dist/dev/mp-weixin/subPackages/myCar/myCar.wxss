@@ -38,13 +38,11 @@ text {
   color: #fd8a06;
 }
 .edit-btn-wrap .edit-btn {
-  -webkit-border-radius: 40rpx;
-          border-radius: 40rpx;
+  border-radius: 40rpx;
   background-color: #fd8a06;
 }
 .edit-btn-wrap .delete-btn {
-  -webkit-border-radius: 40rpx;
-          border-radius: 40rpx;
+  border-radius: 40rpx;
   background-color: #d3d3d3;
 }
 .info-wrap {
@@ -53,8 +51,7 @@ text {
 }
 .check-wrap {
   background: #FFFFFF;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   padding: 5rpx;
   border: 2rpx solid #e2e3e4;
 }
@@ -71,8 +68,7 @@ text {
   width: 236rpx;
   line-height: 65rpx;
   font-size: 26rpx;
-  -webkit-border-radius: 50rpx;
-          border-radius: 50rpx;
+  border-radius: 50rpx;
   color: #FFFFFF;
   text-align: center;
 }
@@ -84,7 +80,6 @@ text {
 }
 .add-wrap {
   background: #1672FF;
-  -webkit-border-radius: 20rpx;
-          border-radius: 20rpx;
+  border-radius: 20rpx;
 }
 

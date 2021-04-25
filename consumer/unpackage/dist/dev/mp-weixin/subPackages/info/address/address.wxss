@@ -30,8 +30,7 @@
 .list-item {
   margin: 10rpx 0;
   background-color: #fff;
-  -webkit-border-radius: 10rpx;
-          border-radius: 10rpx;
+  border-radius: 10rpx;
 }
 .list-item .item-head .head-text {
   padding: 20rpx;

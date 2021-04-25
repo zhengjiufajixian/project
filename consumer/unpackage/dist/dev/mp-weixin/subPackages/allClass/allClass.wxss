@@ -28,7 +28,6 @@
   line-height: 85rpx;
   padding: 0 40rpx;
   background-color: #FFFFFF;
-  -webkit-border-radius: 20rpx;
-          border-radius: 20rpx;
+  border-radius: 20rpx;
 }
 

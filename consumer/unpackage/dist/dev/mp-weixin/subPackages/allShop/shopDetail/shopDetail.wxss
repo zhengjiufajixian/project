@@ -25,10 +25,8 @@
 /* 透明度 */
 /* 文章场景相关 */
 .box-shadow {
-  -webkit-box-shadow: 0 0px 15px 0px #d4d3d3;
-          box-shadow: 0 0px 15px 0px #d4d3d3;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  box-shadow: 0 0px 15px 0px #d4d3d3;
+  border-radius: 50%;
 }
 .shop-info-header {
   width: 400rpx;
@@ -55,8 +53,7 @@
   width: 5rpx;
   height: 20rpx;
   background-color: #1672ff;
-  -webkit-border-radius: 5rpx;
-          border-radius: 5rpx;
+  border-radius: 5rpx;
 }
 .bg-line {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnQAAAASCAMAAADlhbOTAAAAXVBMVEUAAADt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fbt8fYp6ZapAAAAHnRSTlMA0hjZyLuEeiXw6rOlNwUC/Pjfqo9FPTAe4JtyZRF/piNUAAAAq0lEQVRo3u3WNxLCQBBE0Vl5L4wcbu5/TCQCCoGUMRv9F3bcVd0CrF1dXJ6KSABfmlPoyjjqBPCmzfp0CATwpa9yXYQJvYMXdaRvx6QRwFib6IrLBDDVVvolrwWw1OmPPOXZwdCgWw4VGwszkW47FmcBLIy66yCAhVR3OQEsnHXXRQALui8UwMItDplX+NYUuqhFgiDIxmm660sqgJVEZ+VHEOvMPeTfFPDsCaI9avwzpXURAAAAAElFTkSuQmCC) no-repeat;

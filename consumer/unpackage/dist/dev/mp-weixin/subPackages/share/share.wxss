@@ -25,7 +25,6 @@
 /* 透明度 */
 /* 文章场景相关 */
 page {
-  background-image: -webkit-gradient(linear, left top, right top, from(#ff4a2d), to(#f96a2a));
   background-image: -webkit-linear-gradient(left, #ff4a2d 0%, #f96a2a 100%);
   background-image: linear-gradient(90deg, #ff4a2d 0%, #f96a2a 100%);
 }
@@ -40,8 +39,7 @@ page {
 }
 .bg-gray,
 .bg-orange {
-  -webkit-border-radius: 40rpx;
-          border-radius: 40rpx;
+  border-radius: 40rpx;
   padding: 10rpx;
 }
 .bg-gray {
@@ -52,8 +50,7 @@ page {
 }
 .activity-rule {
   background-color: rgba(255, 255, 255, 0.612);
-  -webkit-border-radius: 10rpx 0 0 10rpx;
-          border-radius: 10rpx 0 0 10rpx;
+  border-radius: 10rpx 0 0 10rpx;
   color: #fc4f02;
   font-size: 26rpx;
   line-height: 42rpx;
@@ -90,8 +87,7 @@ page {
   background: #FFFFFF;
   margin: 30rpx 30rpx;
   padding: 26rpx 20rpx;
-  -webkit-border-radius: 20rpx;
-          border-radius: 20rpx;
+  border-radius: 20rpx;
   position: relative;
 }
 .tip {
@@ -125,8 +121,7 @@ page {
   color: #FFFFFF;
   padding: 10rpx 20rpx;
   background-color: #fb7006;
-  -webkit-border-radius: 40rpx;
-          border-radius: 40rpx;
+  border-radius: 40rpx;
 }
 #myQrcode {
   position: absolute;
@@ -135,8 +130,7 @@ page {
 }
 .popup-wrap {
   opacity: 0;
-  -webkit-border-radius: 25rpx;
-          border-radius: 25rpx;
+  border-radius: 25rpx;
   position: absolute;
   left: 50%;
   top: 50%;

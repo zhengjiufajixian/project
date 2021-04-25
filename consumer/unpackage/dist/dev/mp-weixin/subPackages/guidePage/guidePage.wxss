@@ -29,16 +29,14 @@
   color: #FFFFFF;
   font-size: 26rpx;
   padding: 20rpx 40rpx;
-  -webkit-border-radius: 50rpx;
-          border-radius: 50rpx;
+  border-radius: 50rpx;
   text-align: center;
 }
 .wrap2 {
   background-color: #fff;
   margin: 18rpx 30rpx 0;
   padding: 25rpx 0 22rpx 0;
-  -webkit-border-radius: 15rpx;
-          border-radius: 15rpx;
+  border-radius: 15rpx;
   padding-left: 30rpx;
   padding-right: 30rpx;
   color: #666;

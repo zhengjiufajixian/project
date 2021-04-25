@@ -37,4 +37,12 @@
   width: 80%;
   margin: 150rpx auto 0;
 }
+.discount-wrap .discount-number.data-v-2f44fc61 {
+  width: 168rpx;
+  height: 67rpx;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKgAAABDCAMAAAA/Fr7HAAAAz1BMVEXwAgIAAADxBQnwAQHwAgPwBAXxBAXxCA/yEiDwAgLxBAbxBQnxBwvxCQ/xBwvyEBzyFCTyFCLzHTXxBQjxBQfzEiHzEyHzFCPzFynwAQHxBQjxCA3yDBXxDBXxBgnxBwrxBgrzGi/wAgPwBAbxBAfxCQ/wAgLtAADwAADvAAD////xEBD0SUnyKir//Pz2a2vzMTH/8/P91dX5l5f2amrsAAD/+Pj5kZH9z8/5nJzzMDDyHBz+4OD94OD4gID1VFT1Skr0QEDyIyPwCwvwCAi+P+a4AAAAJnRSTlPyAM789uriqhbw3djSwLCAYy0FwpVLQzUQ+cW5p5yEdmYj5LSfVSIBGjAAAAGgSURBVGje7ZoJUsJAEEV7yAJhCfuuAi6TD4iCBlBw1/ufyRpScAOr+lf5T/AqM/0m1d0yEIrkBJYiEGSk00Rt4DghLcBx7m+V5uPze2ot8mJqjjR5m6nNIrGoGjGm6UC3Lwuded/sEpSMAx060OendaIx6/1qeQA9Hv3jQ6Ky/pPlapkd/TWsVQ9qEQs4QCFiGUCtkHxRC7kCCEDRFFMlAMW582hOvZ4QNhxorB+07ITfsfpBUTNy4TFUPVokevoX/h8IP8ch/KKYMwJQVApiTFG/noKeE35eP2jOCb/OIPy2kXFAcEdtNCLREyA+h/B9sRygkEuOo4+kUCEoJpTrYhqBfj35EybhF3z9oF7XSLfEcEfDtvQ5qt6yeNQTjwO0z/PWd0oEoAhvePTEI3yGJ1QmhuenJOSo+ohF+DS9J59H+OOAATQa8TQgeIRP0yTjaDv2eBq5HHriET7LsAHgGYjRjBiNiVVv6cyzoe1pDL7dpOm9wqTb2e4wBj8uFqSbO52ZvX5liwVxVvY/c7VxeGieth31BgdSnv3RoVBk8Ate5mqrmKKjfQAAAABJRU5ErkJggg==);
+  background-size: contain;
+  color: #FFFFFF;
+  font-size: 30rpx;
+}
 

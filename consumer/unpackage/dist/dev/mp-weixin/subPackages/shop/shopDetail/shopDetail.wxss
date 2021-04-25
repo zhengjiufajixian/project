@@ -25,10 +25,8 @@
 /* 透明度 */
 /* 文章场景相关 */
 .box-shadow {
-  -webkit-box-shadow: 0 0px 15px 0px #d4d3d3;
-          box-shadow: 0 0px 15px 0px #d4d3d3;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  box-shadow: 0 0px 15px 0px #d4d3d3;
+  border-radius: 50%;
 }
 .shop-info-header {
   width: 400rpx;
@@ -55,8 +53,7 @@
   width: 5rpx;
   height: 20rpx;
   background-color: #1672ff;
-  -webkit-border-radius: 5rpx;
-          border-radius: 5rpx;
+  border-radius: 5rpx;
 }
 .line-height-30 {
   line-height: 30rpx;
@@ -91,10 +88,8 @@
           justify-content: center;
   height: 60rpx;
   background-color: white;
-  -webkit-box-shadow: 0 0 16rpx 1rpx rgba(22, 114, 255, 0.19);
-          box-shadow: 0 0 16rpx 1rpx rgba(22, 114, 255, 0.19);
+  box-shadow: 0 0 16rpx 1rpx rgba(22, 114, 255, 0.19);
   line-height: 60rpx;
-  -webkit-border-radius: 40rpx 0 0 40rpx;
-          border-radius: 40rpx 0 0 40rpx;
+  border-radius: 40rpx 0 0 40rpx;
 }
 

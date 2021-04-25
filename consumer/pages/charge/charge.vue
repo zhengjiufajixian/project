@@ -24,42 +24,6 @@
 		<view class="btn-wrap" @click="charge">
 			立即充值
 		</view>
-		<!-- <view class="bg-white u-padding-top-32 u-padding-right-30 u-padding-bottom-30 u-padding-left-50">
-			<view class="">
-				<text class="u-font-24 color-333333">充值金额</text>
-			</view>
-			<view>
-				<view class="u-flex">
-					<text class="u-font-40">￥</text>
-					<view class="u-flex-1">
-						<u-input v-model="value" type="digit" :custom-style="customStyle" placeholder="请输入充值金额" />
-					</view>
-				</view>
-				<u-line color="#F3F4F7"></u-line>
-			</view>
-		</view>
-		<u-gap height="20"></u-gap>
-		<view class="bg-white u-padding-top-20 u-padding-right-30 u-padding-left-50">
-			<view class="">
-				<text class="u-font-24 color-333333">支付方式</text>
-			</view>
-			<view class="">
-				<radio-group>
-					<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in list" :key="item.value">
-						<view class="u-flex u-col-center u-padding-top-12 u-padding-bottom-12">
-							<radio :value="item.value" :checked="index === current" style="transform:scale(0.7)" />
-							<u-icon class="u-margin-left-16" size="30" color="#17d56b"  name="weixin-circle-fill"></u-icon>
-							<text class="u-margin-left-12 u-font-26 color-333333">{{item.name}}</text>
-						</view>
-						<u-line color="#F3F4F7" v-if="index%2 == 0"></u-line>
-					</label>
-				</radio-group>
-			</view>
-		</view>
-		<view class="btn-wrap">
-			<u-button type="primary" shape="circle" @click="charge">充值</u-button>
-		</view>
-		 -->
 		<u-popup v-model="show" mode="center" :closeable="true">
 			<view class="modal-wrap u-text-center bg-white">
 				<view class="u-padding-top-66 u-flex u-row-center">
@@ -194,9 +158,10 @@
 		font-size: 36rpx;
 		margin-left: 33rpx;
 		margin-top: 30rpx;
-	}
-	.active {
-		background-color: #d6e6fe;
+		transition: 0.3s all;
+		&.active {
+			background-color: #d6e6fe;
+		}
 	}
 	.pay-wrap {
 		height: 98rpx;

@@ -277,6 +277,7 @@
 					})
 					return
 				}
+				uni.setStorageSync('userPhone',this.userPhone)
 				uni.navigateTo({
 					url: "../pay/pay?payType=0&shopId=" + this.shopInfo.id +
 						"&merchantId=" + this.shopInfo.merchantId +

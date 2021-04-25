@@ -59,6 +59,14 @@
         "info/address/editAddress/editAddress",
         "info/editPhone/editPhone"
       ]
+    },
+    {
+      "root": "subPackages2",
+      "pages": [
+        "categray/categray",
+        "detail/detail",
+        "list/list"
+      ]
     }
   ],
   "window": {

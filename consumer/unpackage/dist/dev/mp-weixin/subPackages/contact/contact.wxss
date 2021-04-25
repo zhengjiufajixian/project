@@ -29,8 +29,7 @@
 }
 .border {
   border: 1rpx solid #1672ff;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   width: 60rpx;
   height: 60rpx;
 }

@@ -25,8 +25,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .btn.data-v-7ff2c464 {
-  -webkit-border-radius: 45rpx;
-          border-radius: 45rpx;
+  border-radius: 45rpx;
   background: #1672ff;
   color: #fff;
   line-height: 2.5;

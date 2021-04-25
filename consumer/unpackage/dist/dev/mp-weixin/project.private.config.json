@@ -13,21 +13,33 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "pages/my/my",
-                    "pathName": "pages/my/my",
+                    "name": "pages/charge/charge",
+                    "pathName": "pages/charge/charge",
                     "query": "",
                     "scene": null
                 },
                 {
-                    "name": "subPackages/test/test",
-                    "pathName": "subPackages/test/test",
+                    "name": "subPackages/pay/pay",
+                    "pathName": "subPackages/pay/pay",
                     "query": "",
                     "scene": null
                 },
                 {
-                    "name": "subPackages/share/share",
-                    "pathName": "subPackages/share/share",
+                    "name": "subPackages2/categray/categray",
+                    "pathName": "subPackages2/categray/categray",
                     "query": "scene=inviteCode%3D1368088329268961282",
+                    "scene": null
+                },
+                {
+                    "name": "subPackages2/detail/detail",
+                    "pathName": "subPackages2/detail/detail",
+                    "query": "id=1",
+                    "scene": 1047
+                },
+                {
+                    "name": "subPackages2/list/list",
+                    "pathName": "subPackages2/list/list",
+                    "query": "id=1",
                     "scene": null
                 }
             ]

@@ -8,13 +8,31 @@
 				<view class="u-flex">
 					<text class="u-font-40">￥</text>
 					<view class="u-flex-1">
-						<u-input v-if="payType == 0 " v-model="orderData.commodityPrice" type="text"
+						<u-input v-if="payType == 0 " :value="getPrice()" type="number" placeholder=" "
 							:custom-style="customStyle" :disabled="true" />
 						<u-input v-else v-model="orderData.orderMoney" type="text" :custom-style="customStyle"
 							:disabled="true" />
 					</view>
+					<view class="u-flex-2" v-show="kaiguan == 'on'">
+						<view class="u-flex u-row-right u-flex discount-wrap" :style="zige?'':'opacity: 0.4;'">
+							<text class="color-FF2828 u-font-30 u-margin-right-30">随机立减</text>
+							<view class="discount-number u-flex u-row-center u-col-center u-margin-right-40">
+								<text>￥</text>
+								<view v-show="zige">
+									<u-count-to ref="uCountTo" :start-val="startValue" :end-val="youhui"
+										:duration="1000" color="#ffffff" font-size="40" :bold="true" :autoplay='false'
+										decimals="2" :use-easing="true" @end="changePrice"></u-count-to>
+								</view>
+								<view v-show="!zige" class="u-font-38">
+									5-30元
+								</view>
+							</view>
+						</view>
+						<view class="u-text-right u-margin-right-40 u-margin-top-20" v-show="!zige">
+							本周优惠已使用
+						</view>
+					</view>
 				</view>
-				<u-line color="#F3F4F7"></u-line>
 			</view>
 		</view>
 		<u-gap height="20"></u-gap>
@@ -26,7 +44,8 @@
 				<radio-group @change="radioChange">
 					<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in list" :key="item.value">
 						<view class="u-flex u-col-center u-padding-top-12 u-padding-bottom-12">
-							<radio :value="item.value" :checked="index === current" :disabled="item.disabled" style="transform:scale(0.7)" />
+							<radio :value="item.value" :checked="index === current" :disabled="item.disabled"
+								style="transform:scale(0.7)" />
 							<u-icon class="u-margin-left-16" name="shopping-cart"></u-icon>
 							<text class="u-margin-left-12 u-font-26 color-333333">{{item.name}}</text>
 							<view v-if="item.value == 'YE'" class="u-flex u-col-center">
@@ -52,7 +71,7 @@
 					<u-image src="/static/image/pay_success.png" width="120" height="120" mode="aspectFit"></u-image>
 				</view>
 				<view v-if="payType == 0" class="u-padding-top-30 color-333333 u-font-36 bold">
-					<text>{{orderData.commodityPrice}}元支付成功</text>
+					<text>{{getPrice()}}元支付成功</text>
 				</view>
 				<view v-else class="u-padding-top-30 color-333333 u-font-36 bold">
 					<text>{{orderData.orderMoney}}元支付成功</text>
@@ -90,6 +109,11 @@
 				payType: '',
 				paymentType: "YE",
 				current: 0,
+				youhui: 0,
+				zige: true,
+				startValue: Math.round((Math.random() * 30 + 5) * 100) / 100,
+				change: false,
+				kaiguan: "off"
 			}
 		},
 		onShow() {
@@ -97,12 +121,50 @@
 		},
 		onLoad(data) {
 			this.payType = data.payType
+			if (data.payType == 0) {
+				this.getDiscount()
+			}
 			if (data.payType == 2) {
 				this.getOrderDetail(data.orderId)
 			}
 			this.orderData = data
 		},
 		methods: {
+			getPrice() {
+				if (this.kaiguan == 'on') {
+					if (this.zige) {
+						if (this.change) {
+							if (this.orderData.commodityPrice > this.youhui) {
+								return this.orderData.commodityPrice - this.youhui
+							} else {
+								this.list[1]['disabled'] = true
+								return 0
+							}
+						} else {
+							return this.orderData.commodityPrice
+						}
+					}else{
+						return this.orderData.commodityPrice
+					}
+				} else {
+					return this.orderData.commodityPrice
+				}
+			},
+			getDiscount() {
+				this.$u.api.getDiscount().then(res => {
+					if (res.kaiguan == 'on') {
+						this.kaiguan = res.kaiguan
+						this.youhui = res.youhui
+						this.zige = res.zige
+						if (res.zige) {
+							this.$refs.uCountTo.start();
+						}
+					}
+				})
+			},
+			changePrice() {
+				this.change = true
+			},
 			get() {
 				config.getSubscribeMessage()
 			},
@@ -157,7 +219,7 @@
 						shopId: this.orderData.shopId,
 						merchantId: this.orderData.merchantId,
 						commodityId: this.orderData.commodityId,
-						commodityPrice: this.orderData.commodityPrice,
+						commodityPrice: this.getPrice(),
 						carNumber: this.orderData.carNumber,
 						carModel: this.orderData.carModel,
 						userPhone: this.orderData.userPhone,
@@ -165,8 +227,10 @@
 						orderType: this.orderData.orderType,
 						paymentType: this.paymentType,
 						openId: uni.getStorageSync("openid"),
-						orderRemark: this.orderData.orderRemark
-					}).then(res => {
+						orderRemark: this.orderData.orderRemark,
+						discount: this.kaiguan == 'on' && this.zige ? 1 : 0,
+						money: this.orderData.commodityPrice
+					}).then(res => { 
 						let orderId = res.orderId
 						if (this.paymentType == "WX") {
 							let appId = config.WX_appId
@@ -203,6 +267,13 @@
 							})
 						}
 						if (this.paymentType == "YE") {
+							if(res.code == 500){
+								uni.showToast({
+									title:res.message,
+									icon:'none'
+								})
+								return
+							}
 							_this.show = true
 							let callback = function() {
 								setTimeout(function() {
@@ -424,5 +495,16 @@
 	.btn-wrap {
 		width: 80%;
 		margin: 150rpx auto 0;
+	}
+
+	.discount-wrap {
+		.discount-number {
+			width: 168rpx;
+			height: 67rpx;
+			background: url(../static/image/discount_bg.png);
+			background-size: contain;
+			color: #FFFFFF;
+			font-size: 30rpx;
+		}
 	}
 </style>
